@@ -1,0 +1,10 @@
+V 0.1:
+
+Rajout: un random damage aux otages 
+Rajout: activation des villes via les paramètres missions
+Rajout: activation des otages dans les villes via les paramètres missions
+Amélioration: réoganisation des functions 
+en passant par la méthode cfg.function améliorant la sécurité
+ainsi que les performances
+Correction: de la fonction fn_SpawnHostageRandom, maintenant les otages 
+spawn précisément à l'endroit défini et non plus à côté 

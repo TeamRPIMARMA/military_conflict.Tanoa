@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="Parameters">
+	<Package name="Main">
+			<Key ID="STR_CTI_DISABLED">
+				<French>Désactiver</French>
+			</Key>
+			<Key ID="STR_CTI_ENABLED">
+				<French>Activer</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_Debug_ENABLE">
+				<French>DEBUG:</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_Escort">
+				<French>Escorter</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_STOP_Escort">
+				<French>Arrêter l'escort</French>
+			</Key>		
+			<Key ID="STR_CTI_POPO_FREE_Hostage">
+				<French>Détacher l'otage</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_TOWN_Units_Georgetown_ENABLED">
+				<French>VILLE: Georgetown ennemi</French>
+			</Key>	
+			<Key ID="STR_CTI_POPO_TOWN_Hostages_Georgetown_ENABLED">
+				<French>VILLE: Georgetown otage</French>
+			</Key>	
+	</Package>
+</Project>
