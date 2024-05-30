@@ -9,14 +9,14 @@ class Params {
 		title = $STR_CTI_POPO_TOWN_Units_Georgetown_ENABLED;
 		values[]={0,1};
 		texts[]={ $STR_CTI_DISABLED, $STR_CTI_ENABLED};
-		default = 1;
+		default = 0;
 	};
 
 	class CTI_POPO_TOWN_Hostages_Georgetown_ENABLED {
 		title = $STR_CTI_POPO_TOWN_Hostages_Georgetown_ENABLED;
 		values[]={0,1};
 		texts[]={ $STR_CTI_DISABLED, $STR_CTI_ENABLED};
-		default = 1;
+		default = 0;
 	};
 
 	class CTI_POPO_Debug_ENABLE {

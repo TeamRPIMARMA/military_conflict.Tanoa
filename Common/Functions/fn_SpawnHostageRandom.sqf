@@ -3,7 +3,7 @@
 	Script: 		Common\Functions\fn_SpawnHostageRandom.sqf
 	Alias:			
 	Description:			      
-          <FR = La fonction permet de créée des otages aléatoire avec un spawn aléatoire.
+          <FR = La fonction permet de créer des otages aléatoire avec un spawn aléatoire.
           Les hostages seront captifs et pourront être libéré pour être excorté. 
           
           EN = The function allows you to create random hostages with a random spawn.

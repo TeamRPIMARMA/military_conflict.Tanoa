@@ -1,3 +1,13 @@
+V 0.2:
+
+Amélioration: maintenant soit on active les villes au lancement de la mission ou 
+par déclencheur de présence qui vient se créé si on mets sur désactiver 
+Rajout nouvelle function: fn_CreateTriggerGetMarker
+Rajout nouvelle function: fn_SkillSet
+Rajout nouvelle function: fn_reinforcementInfantry
+Rajout nouvelle function: fn_reinforcementVehicle
+Rajout: des renforts venant chercher le joueur à la dernière position connue
+
 V 0.1:
 
 Rajout: un random damage aux otages 

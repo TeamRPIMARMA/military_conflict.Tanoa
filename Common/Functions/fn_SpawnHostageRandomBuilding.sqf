@@ -3,7 +3,7 @@
 	Script: 		Common\Functions\fn_SpawnHostageRandomBuilding.sqf
 	Alias:			
 	Description:			      
-          <FR = La fonction permet de créée des otages aléatoire avec un spawn aléatoire à l'intérieur des bâtiments les plus proches du marqueur.
+          <FR = La fonction permet de créer des otages aléatoire avec un spawn aléatoire à l'intérieur des bâtiments les plus proches du marqueur.
           Les hostages seront captifs et pourront être libéré pour être excorté. 
           
           EN = The function allows you to create random hostages with a random spawn inside the buildings closest to the marker.
