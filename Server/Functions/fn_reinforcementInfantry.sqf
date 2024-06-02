@@ -38,7 +38,7 @@ for '_i' from 1 to _numberofgroups step 1 do {// -- On répète X fois le code p
     _spawnPos = [markerPos [_marker], 0, (RANDOM 360)] call BIS_fnc_relPos; 
     _spawnPos = [_spawnPos, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;             
     _grp = [_spawnPos, Independent, _typeofunit] call BIS_fnc_spawnGroup;
-    [_grp,INFskill,0.2,0] call POPO_fnc_SkillSet;
+    [_grp,SYNDIKAT_INFskill,0.2,0] call POPO_fnc_SkillSet;
     _grp setCombatMode "RED";
     _wp = _grp addWaypoint [getPosASL player, -1];  
     _wp setWaypointType "SAD";   

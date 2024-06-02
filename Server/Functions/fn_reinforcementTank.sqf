@@ -40,9 +40,9 @@ for "_i" from 1 to _numberofvehicle do { // -- On répète X fois le code pour X
     _spawnPos = [_spawnPos, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;      
     _veh = createVehicle [(selectRandom _typeofvehicle),_spawnPos,[],0,"NONE"];
     _crew = createVehicleCrew _veh;
-    [_crew,SYNDIKAT_LIGskill,0.2,0] call POPO_fnc_SkillSet;
-    //if (typeOf _veh isEqualTo "O_T_MBT_04_command_F") then {[_veh, ["Grey",1],["showCamonetHull",1,"showCamonetTurret",1]] call BIS_fnc_initVehicle;};
-    //if (typeOf _veh isEqualTo "O_T_APC_Tracked_02_30mm_lxWS") then {[_veh, ["Grey",1],["showTracks",0,"showCamonetHull",1,"showBags",0,"showSLATHull",0]] call BIS_fnc_initVehicle;};
+    [_crew,SYNDIKAT_ARMskill,0.2,0] call POPO_fnc_SkillSet;
+    if (typeOf _veh isEqualTo "O_T_MBT_04_command_F") then {[_veh, ["Grey",1],["showCamonetHull",1,"showCamonetTurret",1]] call BIS_fnc_initVehicle;};
+    if (typeOf _veh isEqualTo "O_T_APC_Tracked_02_30mm_lxWS") then {[_veh, ["Grey",1],["showTracks",0,"showCamonetHull",1,"showBags",0,"showSLATHull",0]] call BIS_fnc_initVehicle;};
     _crew setCombatMode "RED";  
     _wp = _crew addWaypoint [getPosASL player, -1];  
     _wp setWaypointType "SAD";  

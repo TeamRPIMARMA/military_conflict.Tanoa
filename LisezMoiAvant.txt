@@ -1,3 +1,15 @@
+V 0.4:
+
+Rajout: mise en place des réglages du skill par faction et par section
+
+V 0.3:
+
+Correction : maintenant les unités qui spawn en garnison dans les bâtiments ne se voient plus bloqué
+dans une direction
+Rajout nouvelle function: fn_reinforcementAir
+Rajout nouvelle function: fn_reinforcementTank
+
+
 V 0.2:
 
 Amélioration: maintenant soit on active les villes au lancement de la mission ou 

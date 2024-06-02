@@ -1,6 +1,9 @@
 //--- Respawn options.
-respawn = 1;
+respawn = 3;
 respawnDelay = 1;
+//respawnButton = 1;
+//respawnOnStart = 1;
+//respawnDialog=0;
 
 //--- Require briefing.html to show up.
 onLoadMission = "military conflict V 0.1";
@@ -15,7 +18,7 @@ author = "POPO";
 
 // overviewPicture
 //overviewText = "Find and destroy all ammo caches";
-//overviewPicture = "images\photointro.jpg";
+overviewPicture = "images\work.jpg";
 
 //--- Properties.
 class Header {
