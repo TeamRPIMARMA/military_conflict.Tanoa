@@ -2,6 +2,8 @@
 
 Random_Damage = [0,0.2,0.5,0.7,1];
 
+
+// Init Variables
 call POPO_fnc_factionCivilian;
 call POPO_fnc_factionIndependent;
 call POPO_fnc_factionOpfor;

@@ -6,18 +6,18 @@ respawnDelay = 1;
 //respawnDialog=0;
 
 //--- Require briefing.html to show up.
-onLoadMission = "military conflict V 0.1";
+onLoadMission = "military conflict V 0.5";
 onLoadMissionTime = false;
 onLoadName = "military conflict";
 
-briefingName = "military conflict V 0.1";
+briefingName = "military conflict V 0.5";
 
 //--- ArmA 3 Specifics
 dev = "POPO";
 author = "POPO";
 
 // overviewPicture
-//overviewText = "Find and destroy all ammo caches";
+overviewText = "rechercher et extraire les otages";
 overviewPicture = "images\work.jpg";
 
 //--- Properties.

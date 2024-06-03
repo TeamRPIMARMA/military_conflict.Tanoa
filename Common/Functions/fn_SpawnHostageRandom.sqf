@@ -10,7 +10,7 @@
           The hostages will be captive and may be released for excortion.
 	Author: 		Popo
 	Creation Date:	16-05-2024
-	Revision Date:	31-05-2024
+	Revision Date:	02-06-2024
 	
   # PARAMETERS #
   0	[array]: The type of hostage to create
@@ -20,7 +20,7 @@
   # RETURNED VALUE #
 
   # SYNTAX #
-	["_TypeHostage","_TypeSpawn_Hostage","_numberHostages"] call POPO_fnc_SpawnRandomHostage;
+	["_type","_ArraySpawn","_number"] call POPO_fnc_SpawnRandomHostage;
 
   # DEPENDENCIES #
   spawn POPO_fnc_Loop;
@@ -34,18 +34,20 @@
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fonction spawn aléatoirement des Hostages captifs random avec les options 
-params ["_TypeHostage","_TypeSpawn_Hostage","_numberHostages"];
-for "_i" from 0 to _numberHostages do // a loop repeating X times
+params ["_type","_ArraySpawn","_number"];
+private "_HostageCreated";
+
+for "_i" from 1 to _number do // a loop repeating X times
 {
-    _Spawn_Hostage = selectRandom _TypeSpawn_Hostage;
-    _DirHostage = getDir _Spawn_Hostage;
+    _select_spawn = selectRandom _ArraySpawn;
+    _DirHostage = getDir _select_spawn;
     _side_grp_hostage = createGroup civilian;
-    private _HostageCreated = _side_grp_hostage createUnit [(selectRandom _TypeHostage), _Spawn_Hostage, [], 0, "NONE"];
-    Random_Spawn_Hostage deleteAt (Random_Spawn_Hostage find _Spawn_Hostage);
-    if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint format ["Retourne les spawn non utilisé, %1", Random_Spawn_Hostage];};
+    _HostageCreated = _side_grp_hostage createUnit [(selectRandom _type), _select_spawn, [], 0, "NONE"];
+    _ArraySpawn deleteAt (_ArraySpawn find _select_spawn);
+    if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint format ["Retourne les spawn non utilisé, %1", _ArraySpawn];};
     _HostageCreated setDir _DirHostage;
     _HostageCreated switchmove "Acts_AidlPsitMstpSsurWnonDnon03";
-    _HostageCreated attachTo [_Spawn_Hostage, [0, 0, 1]];
+    _HostageCreated attachTo [ _select_spawn, [0, 0, 1]];
     detach _HostageCreated;
     _HostageCreated setDamage (selectRandom Random_Damage);
     {_HostageCreated DisableAI _x} forEach ["FSM", "AUTOTARGET","TARGET","MOVE"];
@@ -53,7 +55,6 @@ for "_i" from 0 to _numberHostages do // a loop repeating X times
     if (alive _HostageCreated && hasInterface) then {[_HostageCreated,localize "STR_CTI_POPO_STOP_Escort","\a3\missions_f_oldman\data\img\holdactions\holdAction_follow_stop_ca.paa","\a3\missions_f_oldman\data\img\holdactions\holdAction_follow_stop_ca.paa","player distance _target < 6","player distance _target < 6",{},{},{_this call POPO_fnc_StopEscortHostage},{},[],1,5,false,false] call BIS_fnc_holdActionAdd;};
     if (alive _HostageCreated && hasInterface) then {[_HostageCreated,localize "STR_CTI_POPO_FREE_Hostage","A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_unbind_ca.paa","A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_unbind_ca.paa","player distance _target < 6","player distance _target < 6",{},{},{_this call POPO_fnc_FreeHostage},{},[],1,7,true,false] call BIS_fnc_holdActionAdd;};
     [alive _HostageCreated, "Sound\ausecoursjesuisretenuici.ogg", _HostageCreated, 5] spawn POPO_fnc_Loop;
-    sleep 0.25;
     if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
 };
 true  

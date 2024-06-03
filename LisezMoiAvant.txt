@@ -1,5 +1,10 @@
+V 0.5:
+
+Amélioration : du debug
+
 V 0.4:
 
+Correction : de la function fn_SkillSet, le random ne retourne aucune valeur
 Rajout: mise en place des réglages du skill par faction et par section
 
 V 0.3:

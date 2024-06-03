@@ -5,44 +5,50 @@
 
 /*
   # HEADER #
-	Script: 		Server\Functions\fn_reinforcementVehicle.sqf
+	Script: 		Server\Functions\fn_reinforcementTank.sqf
 	Alias:			
 	Description:			      
 		        FR = La fonction permet de créée des renforts choisi aléatoirement qui vont sur la dernière position connue du joueur. 
           
-                EN = The function allows you to create reinforcements chosen randomly which go to the last known position of the player.
+            EN = The function allows you to create reinforcements chosen randomly which go to the last known position of the player.
           
 	Author: 		Popo
 	Creation Date:	29-05-2024
-	Revision Date:	31-05-2024
+	Revision Date:	02-06-2024
 	
   # PARAMETERS #
-  0	[position]: the position of spawn
-  1	[array]: my vehicles choose
+  0	[array]: of spawn
+  1	[array]: of vehicle 
   2	[number]: the number of vehicles
   
   # RETURNED VALUE #
 
   # SYNTAX #
-    ["_marker", "_typeofvehicle", "_numberofvehicle"] call POPO_fnc_reinforcementVehicle;
+    ["_ArraySpawn", "_type", "_number"] call POPO_fnc_reinforcementTank;
 
   # DEPENDENCIES # 
     call POPO_fnc_SkillSet
 
   # EXAMPLE # 
-    ["marker_0",Popo_Reinforcement_Prototype ,2] call POPO_fnc_reinforcementVehicle;
+    [independent_Random_Spawn_vehicle,independent_ReinforcementVehicle ,2] call POPO_fnc_reinforcementTank;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-params ["_marker", "_typeofvehicle", "_numberofvehicle"];
+params ["_ArraySpawn", "_type", "_number"];
+private "_VehicleCreated";
 
-for "_i" from 1 to _numberofvehicle do { // -- On répète X fois le code pour X véhicules
-    _spawnPos = [markerPos [_marker], 0, (RANDOM 360)] call BIS_fnc_relPos; 
-    _spawnPos = [_spawnPos, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;      
-    _veh = createVehicle [(selectRandom _typeofvehicle),_spawnPos,[],0,"NONE"];
-    _crew = createVehicleCrew _veh;
-    [_crew,SYNDIKAT_ARMskill,0.2,0] call POPO_fnc_SkillSet;
-    if (typeOf _veh isEqualTo "O_T_MBT_04_command_F") then {[_veh, ["Grey",1],["showCamonetHull",1,"showCamonetTurret",1]] call BIS_fnc_initVehicle;};
-    if (typeOf _veh isEqualTo "O_T_APC_Tracked_02_30mm_lxWS") then {[_veh, ["Grey",1],["showTracks",0,"showCamonetHull",1,"showBags",0,"showSLATHull",0]] call BIS_fnc_initVehicle;};
+for "_i" from 1 to _number do { // -- On répète X fois le code pour X véhicules
+    _select_spawn = selectRandom _ArraySpawn;
+    _DirSpawn = getDir _select_spawn;      
+    _VehicleCreated = createVehicle [(selectRandom _type), _select_spawn,[],0,"NONE"];
+    _crew = createVehicleCrew _VehicleCreated;
+    _ArraySpawn deleteAt (_ArraySpawn find _select_spawn);
+    if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint format ["Retourne les spawn non utilisé, %1", _ArraySpawn];};
+    _VehicleCreated setDir _DirSpawn;
+    _VehicleCreated attachTo [ _select_spawn, [0, 0, 2]];
+    detach _VehicleCreated;
+    [_crew,SYNDIKAT_ARMskill] call POPO_fnc_SkillSet;
+    if (typeOf _VehicleCreated isEqualTo "O_T_MBT_04_command_F") then {[_VehicleCreated, ["Grey",1],["showCamonetHull",1,"showCamonetTurret",1]] call BIS_fnc_initVehicle;};
+    if (typeOf _VehicleCreated isEqualTo "O_T_APC_Tracked_02_30mm_lxWS") then {[_VehicleCreated, ["Grey",1],["showTracks",0,"showCamonetHull",1,"showBags",0,"showSLATHull",0]] call BIS_fnc_initVehicle;};
     _crew setCombatMode "RED";  
     _wp = _crew addWaypoint [getPosASL player, -1];  
     _wp setWaypointType "SAD";  

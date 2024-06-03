@@ -38,7 +38,7 @@ class POPO {
         class SkillSet                      {file = "Server\Functions\fn_SkillSet.sqf";};
         class reinforcementInfantry         {file = "Server\Functions\fn_reinforcementInfantry.sqf";};
         class reinforcementVehicle          {file = "Server\Functions\fn_reinforcementVehicle.sqf";};
-        class reinforcementTank             {file = "Server\Functions\fn_reinforcementTank.sqf";};
+        //class reinforcementTank             {file = "Server\Functions\fn_reinforcementTank.sqf";};
         class reinforcementPlane            {file = "Server\Functions\fn_reinforcementPlane.sqf";};
         class reinforcementChopper          {file = "Server\Functions\fn_reinforcementChopper.sqf";};
     };

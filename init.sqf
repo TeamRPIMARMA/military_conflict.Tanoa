@@ -19,7 +19,7 @@ call POPO_fnc_initParametersCommon;
 call POPO_fnc_initParametersServer;
 
 ["marker_0","['marker_0',independent_Units ,4] call POPO_fnc_reinforcementInfantry","WEST","GUER D"] call POPO_fnc_CreateTriggerGetMarker;
-["marker_0","['marker_0',independent_Reinforcement ,2] call POPO_fnc_reinforcementVehicle","WEST","GUER D"] call POPO_fnc_CreateTriggerGetMarker;
+["marker_0","[independent_Random_Spawn_vehicle,independent_ReinforcementVehicle ,2] call POPO_fnc_reinforcementVehicle","WEST","GUER D"] call POPO_fnc_CreateTriggerGetMarker;
 
 
 // Intro

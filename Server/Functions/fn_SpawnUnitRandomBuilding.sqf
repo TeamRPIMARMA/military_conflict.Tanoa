@@ -22,7 +22,7 @@
   # RETURNED VALUE #
 
   # SYNTAX #
-	["_TypeUnits","_numberUnits","_nameMarker","_distanceRadius"] spawn POPO_Common_fnc_SpawnRandomHostagesBuilding;
+	["_type","_number","_nameMarker","_distanceRadius"] spawn POPO_Common_fnc_SpawnRandomHostagesBuilding;
 
   # DEPENDENCIES # 
   call POPO_fnc_SkillSet
@@ -33,15 +33,15 @@
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fonction spawn aléatoirement des Hostages captifs random à l'intérieur de bâtiment avec les options 
-params ["_TypeUnits","_numberUnits","_nameMarker","_distanceRadius"];
-
+params ["_type","_number","_nameMarker","_distanceRadius"];
 private "_UnitsCreated";
-for "_i" from 1 to _numberUnits do // a loop repeating X times
+
+for "_i" from 1 to _number do // a loop repeating X times
 {
   _buildings = nearestObjects [(getMarkerPos _nameMarker), ["house"], _distanceRadius];
   _building = selectRandom _buildings;
   _buildingPositions = [_building] call BIS_fnc_buildingPositions;
-  _UnitsCreated = independent_grp_units createUnit [(selectRandom _TypeUnits), (selectRandom _buildingPositions), [], 0, "NONE"];
+  _UnitsCreated = independent_grp_units createUnit [(selectRandom _type), (selectRandom _buildingPositions), [], 0, "NONE"];
   [_UnitsCreated] joinSilent independent_grp_units;
   _UnitsCreated setFormDir random 360;
    doStop _UnitsCreated;
@@ -49,7 +49,7 @@ for "_i" from 1 to _numberUnits do // a loop repeating X times
   //_child setDir (_parentDir + (_childDir - _parentDir))
   //_UnitsCreated setDir random 360;
   //{_UnitsCreated DisableAI _x} forEach ["MOVE"];
-  [_UnitsCreated,SYNDIKAT_INFskill,0,0.5] call POPO_fnc_SkillSet;
+  [_UnitsCreated,SYNDIKAT_INFskill] call POPO_fnc_SkillSet;
   if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
 };
 

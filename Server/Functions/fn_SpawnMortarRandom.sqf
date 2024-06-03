@@ -11,34 +11,35 @@
 	Revision Date:	01-06-2024
 	
   # PARAMETERS #
-  0	[array]: The type of mortar to create
-  1	[position]: The 2D/3D position as well as its direction where the unit must be created at
-  2	[number]: number of mortar created
+  0	[array]: of spawn
+  1	[array]: of vehicle 
+  2	[number]: of vehicles
 
   # RETURNED VALUE #
 
   # SYNTAX #
-	["_TypeMortar","_TypeSpawn_Mortar","_numberofMortar"] call POPO_fnc_SpawnMortarRandom;
+	["_arraySpawn", "_type", "_number"] call POPO_fnc_SpawnMortarRandom;
 
   # DEPENDENCIES #
 
   # EXAMPLE #
-  [Mortar_Resistance,Random_Spawn_Mortar,1] call POPO_fnc_SpawnMortarRandom;
+  [independent_Mortar,independent_Random_Spawn_Mortar,1] call POPO_fnc_SpawnMortarRandom;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fonction spawn aléatoirement des Hostages captifs random avec les options 
-params ["_TypeMortar","_TypeSpawn_Mortar","_numberMortar"];
+params ["_arraySpawn", "_type", "_number"];
 private "_MortarCreated";
-for "_i" from 1 to _numberMortar do // a loop repeating X times
+
+for "_i" from 1 to _number do // a loop repeating X times
 {
-    _Spawn_Mortar = selectRandom _TypeSpawn_Mortar;
-    _DirMortar = getDir _Spawn_Mortar; 
-    _MortarCreated = createVehicle [_TypeMortar,_Spawn_Mortar,[],0,"NONE"]; 
+    _select_spawn = selectRandom _arraySpawn;
+    _DirSpawn = getDir _select_spawn; 
+    _MortarCreated = createVehicle [_type,_select_spawn,[],0,"NONE"]; 
     createVehicleCrew _MortarCreated;
-    Random_Spawn_Mortar deleteAt (Random_Spawn_Mortar find _Spawn_Mortar);
-    if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint format ["Retourne les spawn non utilisé, %1", Random_Spawn_Mortar];};
-    _MortarCreated setDir _DirMortar;
-    _MortarCreated attachTo [_Spawn_Mortar, [0, 0, 1]];
+    _arraySpawn deleteAt (_arraySpawn find _select_spawn);
+    if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint format ["Retourne les spawn non utilisé, %1", _arraySpawn];};
+    _MortarCreated setDir _DirSpawn;
+    _MortarCreated attachTo [_select_spawn, [0, 0, 1]];
     detach _MortarCreated;
     [_MortarCreated] joinSilent independent_grp_units;
     if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
