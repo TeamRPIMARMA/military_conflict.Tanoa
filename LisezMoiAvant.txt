@@ -1,3 +1,8 @@
+V 0.6:
+
+Rajout nouvelle function: support parachutage de véhicule ou de munition
+Correction: de la function fn_reinforcementChopper
+
 V 0.5:
 
 Amélioration : du debug

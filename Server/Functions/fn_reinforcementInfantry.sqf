@@ -4,7 +4,7 @@
 //if ((!isServer && hasInterface) || (HCPresent && isServer)) exitWith{};
 /*
   # HEADER #
-	Script: 		Server\Functions\fn_reinforcementVehicle.sqf
+	Script: 		Server\Functions\fn_reinforcementInfantry.sqf
 	Alias:			
 	Description:			      
 		        FR = La fonction permet de créée des renforts qui vont sur la dernière position connue du joueur. 

@@ -14,7 +14,8 @@ class POPO {
         class FreeHostage                   {file = "Common\Functions\fn_FreeHostage.sqf";};
         class Loop                          {file = "Common\Functions\fn_Loop.sqf";};
         class SpawnHostageRandom            {file = "Common\Functions\fn_SpawnHostageRandom.sqf";};
-        class CreateTriggerGetMarker        {file = "Common\Functions\fn_CreateTriggerGetMarker.sqf";}; 
+        class CreateTriggerGetMarker        {file = "Common\Functions\fn_CreateTriggerGetMarker.sqf";};
+        class ParachuteSupport              {file = "Common\Functions\fn_ParachuteSupport.sqf";}; 
 // problem with this function -- class SpawnHostageRandomBuilding    {file = "Common\Functions\fn_SpawnHostageRandomBuilding.sqf";};
 
         // Config
@@ -22,9 +23,11 @@ class POPO {
         class opforAISkill                  {file = "Common\Config\AI_Skill\fn_opforAISkill.sqf";};
 
         //Faction
-        class factionCivilian               {file = "Common\Config\Faction\fn_factionCivilian.sqf";};
-        class factionIndependent            {file = "Common\Config\Faction\fn_factionIndependent.sqf";};
-        class factionOpfor                  {file = "Common\Config\Faction\fn_factionOpfor.sqf";};
+        class factionCivilian               {file = "Common\Config\Faction\CIVILIAN\fn_factionCivilian.sqf";};
+        class factionIndependent            {file = "Common\Config\Faction\INDEPENDENT\fn_factionIndependent.sqf";};
+        class factionOpfor                  {file = "Common\Config\Faction\OPFOR\fn_factionOpfor.sqf";};
+        // BLUFOR Logistics Support
+        class BLUFORAmmobox                 {file = "Common\Config\Faction\BLUFOR\fn_BLUFORAmmobox.sqf";};
     };
 
     class Server

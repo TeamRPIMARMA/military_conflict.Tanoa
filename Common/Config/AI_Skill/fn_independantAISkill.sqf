@@ -39,7 +39,7 @@ SYNDIKAT_LIGskill = [
 1  // general
 ];
 
-// HELICOPTER SKILL
+// AIR SKILL
 SYNDIKAT_AIRskill = [
 0.70, // aimingAccuracy
 0.60, // aimingShake

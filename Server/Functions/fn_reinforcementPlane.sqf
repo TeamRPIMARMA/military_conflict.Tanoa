@@ -5,7 +5,7 @@
 
 /*
   # HEADER #
-	Script: 		Server\Functions\fn_reinforcementAir.sqf
+	Script: 		Server\Functions\fn_reinforcementPlane.sqf
 	Alias:			
 	Description:			      
 		        FR = La fonction permet de créée des renforts choisi aléatoirement qui vont sur la dernière position connue du joueur. 

@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=115;
+		nextID=128;
 	};
 	class MarkerIDProvider
 	{
@@ -16,18 +16,18 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=182;
+		nextID=281;
 	};
 	class Camera
 	{
-		pos[]={6924.519,44.108135,7421.1924};
-		dir[]={0.021612603,-0.48497847,-0.87425929};
-		up[]={0.011988678,0.87421876,-0.48492992};
-		aside[]={-0.99976766,1.196091e-06,-0.024716197};
+		pos[]={5709.9927,214.94379,8194.0869};
+		dir[]={0.49904692,-0.43962938,0.74677855};
+		up[]={0.24426715,0.89817929,0.36552367};
+		aside[]={0.83143598,-1.4901161e-08,-0.55562061};
 	};
 };
 binarizationWanted=0;
-sourceName="military_conflict_v_0_1";
+sourceName="military_conflict";
 addons[]=
 {
 	"A3_Ui_F",
@@ -409,7 +409,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=19;
+		items=22;
 		class Item0
 		{
 			dataType="Marker";
@@ -2035,6 +2035,55 @@ class Mission
 			};
 			id=110;
 			type="Land_PenBlack_F";
+		};
+		class Item19
+		{
+			dataType="Trigger";
+			position[]={6740.124,4.4681916,7254.9229};
+			class Attributes
+			{
+				sizeA=0;
+				sizeB=0;
+				activationBy="ALPHA";
+			};
+			id=115;
+			type="EmptyDetector";
+			atlOffset=4.7683716e-07;
+		};
+		class Item20
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={5771.293,75.649063,8338.3965};
+				angles[]={6.2378764,2.3905425,6.140173};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="spawn_inAirDelivery_1";
+			};
+			id=125;
+			type="Land_PenBlack_F";
+		};
+		class Item21
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={8793.7471,27.787928,6768.1382};
+				angles[]={6.0275645,2.3905425,0.11152653};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="spawn_outChopperDelivery_1";
+			};
+			id=126;
+			type="Land_PenBlack_F";
+			atlOffset=-0.00022506714;
 		};
 	};
 };

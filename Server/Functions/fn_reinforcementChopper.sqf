@@ -5,7 +5,7 @@
 
 /*
   # HEADER #
-	Script: 		Server\Functions\fn_reinforcementAir.sqf
+	Script: 		Server\Functions\fn_reinforcementChopper.sqf
 	Alias:			
 	Description:			      
 		        FR = La fonction permet de créée des renforts choisi aléatoirement qui vont sur la dernière position connue du joueur. 
@@ -35,19 +35,18 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 params ["_ArraySpawn", "_type", "_number"];
 private "_ChopperCreated";
+
 for "_i" from 1 to _number do { // -- On répète X fois le code pour X véhicules
     //_Spawn_Air = selectRandom _ArraySpawn;
     _DirSpawn = getDir _ArraySpawn;
     //_ArraySpawn deleteAt (_ArraySpawn find _Spawn_Air);
     //if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint format ["Retourne le spawn choisi, %1", _ArraySpawn];};    
-    _ChopperCreated = createVehicle [(selectRandom _type), _ArraySpawn,[],0,"NONE"];    
-    //if (typeOf _veh isEqualTo "O_T_APC_Tracked_02_30mm_lxWS") then {[_veh, ["Grey",1],["showTracks",0,"showCamonetHull",1,"showBags",0,"showSLATHull",0]] call BIS_fnc_initVehicle;};
-    _pilot = createVehicleCrew _ChopperCreated;
-    if (typeOf _ChopperCreated isEqualTo "I_Heli_light_03_dynamicLoadout_F") then {_unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 1];_unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 7];[_unitCargo,SYNDIKAT_INFskill,0,0.2] call POPO_fnc_SkillSet;};
-    [_pilot,SYNDIKAT_AIRskill] call POPO_fnc_SkillSet;
+    _ChopperCreated = createVehicle [(selectRandom _type), _ArraySpawn,[],0,"NONE"]; 
     _ChopperCreated attachTo [_ArraySpawn, [0, 0, 2]];
     _ChopperCreated setDir _DirSpawn;
-    detach _ChopperCreated;
+    detach _ChopperCreated;   
+    _pilot = createVehicleCrew _ChopperCreated;
+    if (typeOf _ChopperCreated isEqualTo "I_Heli_light_03_dynamicLoadout_F") then { _unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 1];_unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 7];[_unitCargo,SYNDIKAT_AIRskill] call POPO_fnc_SkillSet;} else {[_pilot,SYNDIKAT_AIRskill] call POPO_fnc_SkillSet;};
     _pilot setCombatMode "RED";  
     _wp = _pilot addWaypoint [getPosASL player, -1];  
     _wp setWaypointType "SAD";  
