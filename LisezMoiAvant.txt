@@ -1,3 +1,8 @@
+V 0.7:
+
+Correction : de la function fn_SkillSet , maintenant la portée de la fonction est
+à tous le groupe et ne cause plus de casse !
+
 V 0.6:
 
 Rajout nouvelle function: support parachutage de véhicule ou de munition

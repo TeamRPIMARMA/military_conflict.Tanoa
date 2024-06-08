@@ -24,7 +24,7 @@
 
 
   # DEPENDENCIES #
-  call POPO_fnc_3Dsound;
+  Common\Functions\fn_3DSound.sqf
 
   # EXAMPLE #
   [alive unit, "Sound\ausecoursjesuisretenuici.ogg", Hostage, 10] spawn POPO_fnc_Loop;

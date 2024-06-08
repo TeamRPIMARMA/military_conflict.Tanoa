@@ -40,20 +40,21 @@ for "_i" from 1 to _number do { // -- On répète X fois le code pour X véhicul
     //_Spawn_Air = selectRandom _ArraySpawn;
     _DirSpawn = getDir _ArraySpawn;
     //_ArraySpawn deleteAt (_ArraySpawn find _Spawn_Air);
-    //if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint format ["Retourne le spawn choisi, %1", _ArraySpawn];};    
+    //if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint format ["Retourne le spawn choisi, %1", _ArraySpawn];};   
     _ChopperCreated = createVehicle [(selectRandom _type), _ArraySpawn,[],0,"NONE"]; 
     _ChopperCreated attachTo [_ArraySpawn, [0, 0, 2]];
     _ChopperCreated setDir _DirSpawn;
     detach _ChopperCreated;   
     _pilot = createVehicleCrew _ChopperCreated;
-    if (typeOf _ChopperCreated isEqualTo "I_Heli_light_03_dynamicLoadout_F") then { _unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 1];_unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 7];[_unitCargo,SYNDIKAT_AIRskill] call POPO_fnc_SkillSet;} else {[_pilot,SYNDIKAT_AIRskill] call POPO_fnc_SkillSet;};
+    [_pilot,SYNDIKAT_AIRskill,independent] call POPO_fnc_SkillSet;
+    if (typeOf _ChopperCreated isEqualTo "I_Heli_light_03_dynamicLoadout_F") then { _unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 1];_unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 7];};
     _pilot setCombatMode "RED";  
     _wp = _pilot addWaypoint [getPosASL player, -1];  
     _wp setWaypointType "SAD";  
     _wp setWaypointSpeed "FULL";   
     _wp setWaypointBehaviour "AWARE";   
     _wp setWaypointFormation "COLUMN";   
-    _wp setWaypointCompletionRadius 50;
+    _wp setWaypointCompletionRadius 0;
 };
 
 true

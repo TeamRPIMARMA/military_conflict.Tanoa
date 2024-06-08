@@ -19,7 +19,7 @@
   [VARIABLE] call POPO_fnc_EscortHostage;
 
   # DEPENDENCIES #
-  [VARIABLE] call POPO_fnc_StopEscortHostage;
+  Common\Functions\fn_StopEscortHostage.sqf
 
   # EXAMPLE #
 

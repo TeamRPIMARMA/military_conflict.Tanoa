@@ -19,7 +19,7 @@
   # RETURNED VALUE #
 
   # SYNTAX #
-	["_unit","_skillset"] call POPO_fnc_SkillSet;
+	["_unit","_skillset","_side"] call POPO_fnc_SkillSet;
 
   # DEPENDENCIES # 
 
@@ -27,16 +27,17 @@
   [_UnitsCreated,INFskill] call POPO_fnc_SkillSet;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-params ["_unit","_skillset"/*,"_skillUp","_skillDown"*/];
+params ["_unit","_skillset","_side"];
 if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["retourne le tableau du skillSet, %1", _skillset];};
 
 {
-  //if (true) then { 
-    _skillvalue = (_skillset select _forEachIndex) + (random 0.2) - (random 0.2);_unit setSkill [_x,_skillvalue]; 
-  //} else {
-    //_skillvalue = (_skillset select _forEachIndex) + _skillUp - _skillDown;_unit setSkill [_x,_skillvalue];
-  //};
-} forEach ['aimingAccuracy','aimingShake','aimingSpeed','spotDistance','spotTime','courage','reloadSpeed','commanding','general'];
+	_unit = _x;
+	{
+		_skillvalue = (_skillset select _forEachIndex) + (random 0.2) - (random 0.2);
+		_unit setSkill [_x,_skillvalue];
+	} forEach ['aimingAccuracy','aimingShake','aimingSpeed','spotDistance','spotTime','courage','reloadSpeed','commanding','general'];
+
+} forEach (units _side);
  
 // return value
 _skillaimingAccuracy = _unit skill "aimingAccuracy";

@@ -3,7 +3,7 @@
 	Script: 		Common\Functions\fn_SpawnHostageRandomBuilding.sqf
 	Alias:			
 	Description:			      
-          <FR = La fonction permet de créer des otages aléatoire avec un spawn aléatoire à l'intérieur des bâtiments les plus proches du marqueur.
+          FR = La fonction permet de créer des otages aléatoire avec un spawn aléatoire à l'intérieur des bâtiments les plus proches du marqueur.
           Les hostages seront captifs et pourront être libéré pour être excorté. 
           
           EN = The function allows you to create random hostages with a random spawn inside the buildings closest to the marker.
@@ -25,11 +25,11 @@
 	[VARIABLE, VARIABLE, VARIABLE, VARIABLE] spawn POPO_fnc_SpawnRandomHostageBuilding;
 
   # DEPENDENCIES # 
-  spawn POPO_fnc_Loop;
-  call POPO_fnc_FreeHostage;
-  call POPO_fnc_StopEscortHostage;
-  call POPO_fnc_StopEscort;
-  call POPO_fnc_3Dsound;
+  Common\Functions\fn_Loop.sqf
+  Common\Functions\fn_FreeHostage.sqf
+  Common\Functions\fn_StopEscortHostage.sqf
+  Common\Functions\fn_EscortHostage.sqf
+  Common\Functions\fn_3DSound.sqf
 
   # EXAMPLE # 
   [unit, number unit, getPosition marker, distance radius marker] spawn POPO_fnc_SpawnRandomHostageBuilding;
@@ -56,5 +56,6 @@ for "_i" from 0 to _numberHostages do // a loop repeating X times
     sleep 0.25;
     if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
 };
+
 true
 

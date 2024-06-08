@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=128;
+		nextID=231;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=281;
+		nextID=390;
 	};
 	class Camera
 	{
-		pos[]={5709.9927,214.94379,8194.0869};
-		dir[]={0.49904692,-0.43962938,0.74677855};
-		up[]={0.24426715,0.89817929,0.36552367};
-		aside[]={0.83143598,-1.4901161e-08,-0.55562061};
+		pos[]={5843.9937,69.819885,10397.709};
+		dir[]={-0.54063088,-0.7071501,-0.45569581};
+		up[]={-0.54069519,0.70704716,-0.45575035};
+		aside[]={-0.64449316,1.3501267e-07,0.76461679};
 	};
 };
 binarizationWanted=0;
@@ -73,13 +73,15 @@ addons[]=
 	"maestro_darter",
 	"maestro_vehicules",
 	"A3_Characters_F",
-	"A3_Structures_F_Items_Stationery"
+	"A3_Structures_F_Items_Stationery",
+	"A3_Modules_F",
+	"maestro_TCN"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=38;
+		items=40;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -333,6 +335,18 @@ class AddonsMetaData
 			name="Maestro vehicules";
 			author="Maestro Yoyo";
 		};
+		class Item38
+		{
+			className="A3_Modules_F";
+			name="Arma 3 Alpha - Scripted Modules";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item39
+		{
+			className="maestro_TCN";
+			name="maestro_TCN";
+		};
 	};
 };
 dlcs[]=
@@ -409,7 +423,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=22;
+		items=25;
 		class Item0
 		{
 			dataType="Marker";
@@ -2084,6 +2098,161 @@ class Mission
 			id=126;
 			type="Land_PenBlack_F";
 			atlOffset=-0.00022506714;
+		};
+		class Item22
+		{
+			dataType="Layer";
+			name="logic center";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Layer";
+					name="[BMR] Logic center";
+					class Entities
+					{
+						items=1;
+						class Item0
+						{
+							dataType="Logic";
+							class PositionInfo
+							{
+								position[]={8992.2236,38.740768,9946.2979};
+								angles[]={6.2013645,0,0};
+							};
+							name="center";
+							id=225;
+							type="Logic";
+							atlOffset=-0.015014648;
+						};
+					};
+					id=224;
+					atlOffset=-0.015014648;
+				};
+			};
+			id=226;
+			atlOffset=-0.015014648;
+		};
+		class Item23
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5802.127,8.0741501,10382.668};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						name="boss";
+					};
+					id=228;
+					type="TCN_Officer";
+					atlOffset=0.12400007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male01FRE";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=227;
+			atlOffset=0.12400007;
+		};
+		class Item24
+		{
+			dataType="Group";
+			side="Independent";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={5803.248,8.0488977,10392.432};
+					};
+					side="Independent";
+					flags=7;
+					class Attributes
+					{
+						init="this setPosATL ((nearestBuilding this) buildingPos 2);";
+					};
+					id=230;
+					type="TCN_elite_AA";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="STRING";
+									value="Male02FRE";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									singleType="SCALAR";
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=2;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=229;
 		};
 	};
 };

@@ -3,7 +3,7 @@
 	Script: 		Common\Functions\fn_StopEscortHostage.sqf
 	Alias:			
 	Description:			      
-          <FR = La fonction permet d'arrêter l'escort de l'otage. 
+          FR = La fonction permet d'arrêter l'escort de l'otage. 
           
           EN = The function allows you to stop escorting the hostage.
 	Author: 		Popo
@@ -19,7 +19,7 @@
 	[VARIABLE] call POPO_fnc_StopEscortHostage;
   
   # DEPENDENCIES #
-  call POPO_fnc_EscortHostage;
+  Common\Functions\fn_EscortHostage.sqf
 
   # EXAMPLE #
 
@@ -67,4 +67,5 @@
 // Fonction qui stop l'escort
 params ["_Hostage"];
 detach _Hostage;
+
 true

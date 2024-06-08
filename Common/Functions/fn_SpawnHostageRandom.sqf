@@ -3,14 +3,14 @@
 	Script: 		Common\Functions\fn_SpawnHostageRandom.sqf
 	Alias:			
 	Description:			      
-          <FR = La fonction permet de créer des otages aléatoire avec un spawn aléatoire.
+          FR = La fonction permet de créer des otages aléatoire avec un spawn aléatoire.
           Les hostages seront captifs et pourront être libéré pour être excorté. 
           
           EN = The function allows you to create random hostages with a random spawn.
           The hostages will be captive and may be released for excortion.
 	Author: 		Popo
 	Creation Date:	16-05-2024
-	Revision Date:	02-06-2024
+	Revision Date:	07-06-2024
 	
   # PARAMETERS #
   0	[array]: The type of hostage to create
@@ -23,11 +23,11 @@
 	["_type","_ArraySpawn","_number"] call POPO_fnc_SpawnRandomHostage;
 
   # DEPENDENCIES #
-  spawn POPO_fnc_Loop;
-  call POPO_fnc_FreeHostage;
-  call POPO_fnc_StopEscortHostage;
-  call POPO_fnc_EscortHostage;
-  call POPO_fnc_3Dsound;
+  Common\Functions\fn_Loop.sqf
+  Common\Functions\fn_FreeHostage.sqf
+  Common\Functions\fn_StopEscortHostage.sqf
+  Common\Functions\fn_EscortHostage.sqf
+  Common\Functions\fn_3DSound.sqf
 
   # EXAMPLE #
   [Hostage,Random_Spawn_Hostage,9] spawn POPO_fnc_SpawnRandomHostage;
@@ -49,7 +49,7 @@ for "_i" from 1 to _number do // a loop repeating X times
     _HostageCreated switchmove "Acts_AidlPsitMstpSsurWnonDnon03";
     _HostageCreated attachTo [ _select_spawn, [0, 0, 1]];
     detach _HostageCreated;
-    _HostageCreated setDamage (selectRandom Random_Damage);
+    _HostageCreated setDamage (selectRandom [0,0.2,0.5,0.7,1]);
     {_HostageCreated DisableAI _x} forEach ["FSM", "AUTOTARGET","TARGET","MOVE"];
     if (alive _HostageCreated && hasInterface) then {[_HostageCreated,localize "STR_CTI_POPO_Escort","\a3\missions_f_oldman\data\img\holdactions\holdAction_follow_start_ca.paa","\a3\missions_f_oldman\data\img\holdactions\holdAction_follow_start_ca.paa","player distance _target < 6","player distance _target < 6",{},{},{_this call POPO_fnc_EscortHostage},{},[],3,6,false,false] call BIS_fnc_holdActionAdd;};
     if (alive _HostageCreated && hasInterface) then {[_HostageCreated,localize "STR_CTI_POPO_STOP_Escort","\a3\missions_f_oldman\data\img\holdactions\holdAction_follow_stop_ca.paa","\a3\missions_f_oldman\data\img\holdactions\holdAction_follow_stop_ca.paa","player distance _target < 6","player distance _target < 6",{},{},{_this call POPO_fnc_StopEscortHostage},{},[],1,5,false,false] call BIS_fnc_holdActionAdd;};
@@ -57,6 +57,7 @@ for "_i" from 1 to _number do // a loop repeating X times
     [alive _HostageCreated, "Sound\ausecoursjesuisretenuici.ogg", _HostageCreated, 5] spawn POPO_fnc_Loop;
     if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
 };
+
 true  
 
 

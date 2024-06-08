@@ -19,7 +19,7 @@
 	[VARIABLE] call POPO_fnc_FreeHostage;
 
   # DEPENDENCIES #
-  call POPO_fnc_3Dsound;
+  Common\Functions\fn_3DSound.sqf
   
   # EXAMPLE #
   if (alive _HostageCreated && hasInterface && not isServer) then {

@@ -45,7 +45,7 @@ for "_i" from 1 to _number do { // -- On répète X fois le code pour X véhicul
     //if (typeOf _veh isEqualTo "O_T_APC_Tracked_02_30mm_lxWS") then {[_veh, ["Grey",1],["showTracks",0,"showCamonetHull",1,"showBags",0,"showSLATHull",0]] call BIS_fnc_initVehicle;};
     _pilot = createVehicleCrew _PlaneCreated;
     //if (typeOf _AirCreated isEqualTo "I_Heli_light_03_dynamicLoadout_F") then {_unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_AirCreated, 1];_unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_AirCreated, 7];[_unitCargo,INFskill,0,0.2] call POPO_fnc_SkillSet;};
-    [_pilot,SYNDIKAT_STAskill] call POPO_fnc_SkillSet;
+    [_pilot,SYNDIKAT_STAskill,independent] call POPO_fnc_SkillSet;
     _PlaneCreated attachTo [_ArraySpawn, [0, 0, 2]];
     _PlaneCreated setDir _DirSpawn;
     detach _PlaneCreated;
@@ -55,7 +55,7 @@ for "_i" from 1 to _number do { // -- On répète X fois le code pour X véhicul
     _wp setWaypointSpeed "FULL";   
     _wp setWaypointBehaviour "AWARE";   
     _wp setWaypointFormation "COLUMN";   
-    _wp setWaypointCompletionRadius 50;
+    _wp setWaypointCompletionRadius 0;
 };
 
 true

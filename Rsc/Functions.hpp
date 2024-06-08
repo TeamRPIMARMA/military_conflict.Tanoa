@@ -24,8 +24,14 @@ class POPO {
 
         //Faction
         class factionCivilian               {file = "Common\Config\Faction\CIVILIAN\fn_factionCivilian.sqf";};
-        class factionIndependent            {file = "Common\Config\Faction\INDEPENDENT\fn_factionIndependent.sqf";};
         class factionOpfor                  {file = "Common\Config\Faction\OPFOR\fn_factionOpfor.sqf";};
+
+        //Faction independent
+        class InfantryTCN                   {file = "Common\Config\Faction\INDEPENDENT\TCN\fn_InfantryTCN.sqf";};
+        class LightVehicleTCN               {file = "Common\Config\Faction\INDEPENDENT\TCN\fn_LightVehicleTCN.sqf";};
+        class ShipTCN                       {file = "Common\Config\Faction\INDEPENDENT\TCN\fn_ShipTCN.sqf";};
+        class StaticWeaponTCN               {file = "Common\Config\Faction\INDEPENDENT\TCN\fn_StaticWeaponTCN.sqf";};
+
         // BLUFOR Logistics Support
         class BLUFORAmmobox                 {file = "Common\Config\Faction\BLUFOR\fn_BLUFORAmmobox.sqf";};
     };

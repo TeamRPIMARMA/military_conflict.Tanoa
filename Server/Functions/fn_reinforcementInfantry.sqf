@@ -26,26 +26,28 @@
     ["_marker", "_type", "_number"] call POPO_fnc_reinforcementInfantry;
 
   # DEPENDENCIES # 
-    call POPO_fnc_SkillSet
 
   # EXAMPLE # 
-    ["marker_0",independent_Units,3] call POPO_fnc_reinforcementInfantry;
+    pas plus de 2 groupes sinon les unités ne bouge plus !!!
+    ["marker_0",I_TCN_BANDITS_INFANTRY,2] call POPO_fnc_reinforcementInfantry;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 params ["_marker", "_type", "_number"];
 
-for '_i' from 1 to _number do {// -- On répète X fois le code pour X groupes
-    _spawnPos = [markerPos [_marker], 0, (RANDOM 360)] call BIS_fnc_relPos; 
+for "_i" from 1 to _number do 
+{
+    _spawnPos = [markerPos _marker, 0, (RANDOM 360)] call BIS_fnc_relPos; 
     _spawnPos = [_spawnPos, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;             
-    _grp = [_spawnPos, Independent, _type] call BIS_fnc_spawnGroup;
-    [_grp,SYNDIKAT_INFskill] call POPO_fnc_SkillSet;
-    _grp setCombatMode "RED";
-    _wp = _grp addWaypoint [getPosASL player, -1];  
+    _grpCeated = [_spawnPos, Independent, _type,[],[],[0.10,0.25]] call BIS_fnc_spawnGroup;
+    [_grpCeated,SYNDIKAT_INFskill,independent] call POPO_fnc_SkillSet;
+    _grpCeated setCombatMode "RED";
+    _wp = _grpCeated addWaypoint [getPosASL player, -1];  
     _wp setWaypointType "SAD";   
     _wp setWaypointSpeed "FULL";   
     _wp setWaypointBehaviour "AWARE";   
     _wp setWaypointFormation "WEDGE";   
     _wp setWaypointCompletionRadius 50;
+    if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
 };
 
 true

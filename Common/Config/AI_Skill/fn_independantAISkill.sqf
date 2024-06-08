@@ -1,20 +1,20 @@
 // AI Skill
 
 // INFANTRY SKILL
-SYNDIKAT_INFskill = [
-0.25, // aimingAccuracy
+BANDITS_INFskill = [
+0.20, // aimingAccuracy
 0.15, // aimingShake
-0.50, // aimingSpeed
-0.50, // spotDistance
-0.70, // spotTime
-0.70, // courage
-0.70, // reloadSpeed
-0.60, // commanding
-1 // general
+0.40, // aimingSpeed
+0.30, // spotDistance
+0.50, // spotTime
+0.40, // courage
+0.40, // reloadSpeed
+0.30, // commanding
+0.50 // general
 ];
 
 // ARMOUR SKILL
-SYNDIKAT_ARMskill = [
+BANDITS_ARMskill = [
 0.60, // aimingAccuracy
 0.30, // aimingShake
 0.50, // aimingSpeed
@@ -27,20 +27,20 @@ SYNDIKAT_ARMskill = [
 ];
 
 // LIGHT VEHICLE skill
-SYNDIKAT_LIGskill = [
-0.35, // aimingAccuracy
-0.30, // aimingShake
-0.50, // aimingSpeed
-0.50, // spotDistance
-0.50, // spotTime
-0.70, // courage
-0.70, // reloadSpeed
-1, // commanding
-1  // general
+BANDITS_LIGskill = [
+0.30, // aimingAccuracy
+0.25, // aimingShake
+0.40, // aimingSpeed
+0.40, // spotDistance
+0.40, // spotTime
+0.60, // courage
+0.60, // reloadSpeed
+0.70, // commanding
+0.60  // general
 ];
 
 // AIR SKILL
-SYNDIKAT_AIRskill = [
+BANDITS_AIRskill = [
 0.70, // aimingAccuracy
 0.60, // aimingShake
 0.80, // aimingSpeed
@@ -53,7 +53,7 @@ SYNDIKAT_AIRskill = [
 ];
 
 // STATIC SKILL
-SYNDIKAT_STAskill = [
+BANDITS_STAskill = [
 0.40, // aimingAccuracy
 0.70, // aimingShake
 0.80, // aimingSpeed
