@@ -15,7 +15,10 @@ class POPO {
         class Loop                          {file = "Common\Functions\fn_Loop.sqf";};
         class SpawnHostageRandom            {file = "Common\Functions\fn_SpawnHostageRandom.sqf";};
         class CreateTriggerGetMarker        {file = "Common\Functions\fn_CreateTriggerGetMarker.sqf";};
-        class ParachuteSupport              {file = "Common\Functions\fn_ParachuteSupport.sqf";}; 
+        class ParachuteSupport              {file = "Common\Functions\fn_ParachuteSupport.sqf";};
+        class MarkerTracker                 {file = "Common\Functions\fn_MarkerTracker.sqf";};  
+        class addInterference               {file = "Common\Functions\fn_addInterference.sqf";};
+        class removeInterference            {file = "Common\Functions\fn_removeInterference.sqf";};
 // problem with this function -- class SpawnHostageRandomBuilding    {file = "Common\Functions\fn_SpawnHostageRandomBuilding.sqf";};
 
         // Config
@@ -50,6 +53,12 @@ class POPO {
         //class reinforcementTank             {file = "Server\Functions\fn_reinforcementTank.sqf";};
         class reinforcementPlane            {file = "Server\Functions\fn_reinforcementPlane.sqf";};
         class reinforcementChopper          {file = "Server\Functions\fn_reinforcementChopper.sqf";};
+    };
+
+    class Client
+    { 
+        // HoldActionAdd
+        class holdActionAddParachuteSupport {file = "Client\holdActionAdd\fn_holdActionAddParachuteSupport.sqf";};
     };
 };
 

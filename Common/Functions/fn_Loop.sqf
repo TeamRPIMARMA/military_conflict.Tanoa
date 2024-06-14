@@ -31,8 +31,8 @@
   
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// Fonction qui accroche un son 3D à l'unité en boucle avec sa condition de sortie
 params ["_condition","_filename","_soundSource","_timeSleep"];
+
 while {_condition} do 
 {
   [ _filename, _soundSource] call POPO_fnc_3Dsound;
@@ -43,4 +43,5 @@ while {_condition} do
       if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {hint "On sort de la boucle.";};
   };
 };
+
 true

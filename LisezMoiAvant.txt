@@ -1,3 +1,8 @@
+V 0.8:
+
+Rajout : mise en place d'un système de brouillage
+Rajout : du menu interaction pour l'appel de logistique
+
 V 0.7:
 
 Correction : de la function fn_SkillSet , maintenant la portée de la fonction est

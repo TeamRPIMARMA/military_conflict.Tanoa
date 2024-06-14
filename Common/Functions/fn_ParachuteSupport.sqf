@@ -23,6 +23,7 @@
 
   # DEPENDENCIES #
   Common\Config\Faction\BLUFOR\Logistics_Support\fn_BLUFORAmmobox.sqf
+  Common\Functions\fn_MarkerTracker.sqf
 
   # EXAMPLE #
   For slingload
@@ -68,10 +69,10 @@ if (_typeAirVehicle isEqualTo "B_Heli_Transport_03_F") then
   
 // For paradrop
 if ( _typeAirVehicle isEqualTo "B_T_VTOL_01_Vehicle_F_Kimi") then 
-{
+  {
   _DirSpawn = getDir _spawn; 
   CargoV44Created = createVehicle [_typeCargoVehicle,_spawn,[],0,"NONE"];
-  if ( CargoV44Created isEqualTo "B_supplyCrate_F") then {[CargoV44Created] call POPO_fnc_BLUFORAmmobox;}; 
+  if (typeof CargoV44Created isEqualTo "B_supplyCrate_F") then {[CargoV44Created] call POPO_fnc_BLUFORAmmobox;}; 
   V44Created = createVehicle [_typeAirVehicle,_spawn,[],0,"FLY"]; 
   _pilot = createVehicleCrew V44Created;
   V44Created setDir _DirSpawn;
@@ -79,25 +80,23 @@ if ( _typeAirVehicle isEqualTo "B_T_VTOL_01_Vehicle_F_Kimi") then
   V44Created flyInHeight _altitude;
   CargoV44Created setDir _DirSpawn;
   V44Created setVehicleCargo CargoV44Created;
-
+  
   _pilot setCombatMode "YELLOW"; 
   _wp1 = _pilot addWaypoint [getPosASL player, -1]; 
   _wp1 setWaypointType "MOVE";  
   _wp1 setWaypointSpeed "NORMAL";   
   _wp1 setWaypointBehaviour "AWARE";
-  _wp1 setWaypointStatements ["true", "objNull setVehicleCargo CargoV44Created"];   
-    
+  _wp1 setWaypointStatements ["true", "objNull setVehicleCargo CargoV44Created;[CargoV44Created] spawn POPO_fnc_MarkerTracker;[west, 'AirBase'] sideChat localize 'STR_CTI_POPO_HQ_MESSAGE_DROPPING_AMMOBOX';"]; 
 
   _wp2 = _pilot addWaypoint [getPosASL spawn_outChopperDelivery_1, -1];  
   _wp2 setWaypointType "MOVE";  
   _wp2 setWaypointSpeed "FULL";   
   _wp2 setWaypointBehaviour "AWARE";   
-  _wp2 setWaypointStatements ["true", "deleteVehicleCrew V44Created;{ V44Created deleteVehicleCrew _x } forEach crew V44Created"];
+  _wp2 setWaypointStatements ["true", "deleteVehicleCrew V44Created;{ V44Created deleteVehicleCrew _x } forEach crew V44Created;[west, 'AirBase'] sideChat localize 'STR_CTI_POPO_HQ_MESSAGE_PARADROP_RETURN_BASE';"];
+
   } else {
 	hint "mettre la bonne classe 'B_T_VTOL_01_Vehicle_F_Kimi'";
 };
-
-//if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
 
 true  
 

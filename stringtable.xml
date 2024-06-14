@@ -25,5 +25,14 @@
 			<Key ID="STR_CTI_POPO_TOWN_Hostages_Georgetown_ENABLED">
 				<French>VILLE: Georgetown otage</French>
 			</Key>	
+			<Key ID="STR_CTI_POPO_HQ_MESSAGE_PARADROP">
+				<French>Reçu. Nous sommes en chemin largage sur votre position !</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_HQ_MESSAGE_DROPPING_AMMOBOX">
+				<French>Caisse larguée, balise GPS activée !</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_HQ_MESSAGE_PARADROP_RETURN_BASE">
+				<French>retour base. Bonne chance</French>
+			</Key>
 	</Package>
 </Project>

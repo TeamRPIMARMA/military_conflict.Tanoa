@@ -3,7 +3,7 @@
 	Script: 		Common\Functions\fn_CreateTriggerGetMarker.sqf
 	Alias:			
 	Description:			      
-          <FR = La fonction permet de créée un déclencheur en se basant sur la taille du marqueur.
+          FR = La fonction permet de créée un déclencheur en se basant sur la taille du marqueur.
           
           
           EN = The function allows you to create a trigger based on the size of the marker.

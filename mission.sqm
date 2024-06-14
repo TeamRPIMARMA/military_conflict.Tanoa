@@ -8,22 +8,22 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=231;
+		nextID=261;
 	};
 	class MarkerIDProvider
 	{
-		nextID=4;
+		nextID=7;
 	};
 	class LayerIndexProvider
 	{
-		nextID=390;
+		nextID=926;
 	};
 	class Camera
 	{
-		pos[]={5843.9937,69.819885,10397.709};
-		dir[]={-0.54063088,-0.7071501,-0.45569581};
-		up[]={-0.54069519,0.70704716,-0.45575035};
-		aside[]={-0.64449316,1.3501267e-07,0.76461679};
+		pos[]={6184.8169,84.652695,10383.846};
+		dir[]={-0.040588185,-0.87241721,-0.48707473};
+		up[]={-0.072443575,0.48867857,-0.86936647};
+		aside[]={-0.99658024,8.9609603e-07,0.08304552};
 	};
 };
 binarizationWanted=0;
@@ -75,13 +75,15 @@ addons[]=
 	"A3_Characters_F",
 	"A3_Structures_F_Items_Stationery",
 	"A3_Modules_F",
-	"maestro_TCN"
+	"A3_Structures_F_Bootcamp_VR_Helpers",
+	"A3_Props_F_Enoch_Industrial_Electric",
+	"A3_Props_F_Decade_Objectives"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=40;
+		items=42;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -344,8 +346,22 @@ class AddonsMetaData
 		};
 		class Item39
 		{
-			className="maestro_TCN";
-			name="maestro_TCN";
+			className="A3_Structures_F_Bootcamp";
+			name="Arma 3 Bootcamp Update - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item40
+		{
+			className="A3_Props_F_Enoch";
+			name="Arma 3 Contact Platform - Decorative and Mission Objects";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
+		class Item41
+		{
+			className="A3_Props_F_Decade_Objectives";
+			name="A3_Props_F_Decade_Objectives";
 		};
 	};
 };
@@ -355,7 +371,9 @@ dlcs[]=
 	"Niarms_Core",
 	"KICKASS",
 	"Mark",
-	"Expansion"
+	"Expansion",
+	"Contact",
+	"Argo"
 };
 randomSeed=598685;
 class ScenarioData
@@ -423,7 +441,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=25;
+		items=27;
 		class Item0
 		{
 			dataType="Marker";
@@ -2136,123 +2154,150 @@ class Mission
 		};
 		class Item23
 		{
-			dataType="Group";
-			side="Independent";
-			class Entities
-			{
-				items=1;
-				class Item0
-				{
-					dataType="Object";
-					class PositionInfo
-					{
-						position[]={5802.127,8.0741501,10382.668};
-					};
-					side="Independent";
-					flags=7;
-					class Attributes
-					{
-						name="boss";
-					};
-					id=228;
-					type="TCN_Officer";
-					atlOffset=0.12400007;
-					class CustomAttributes
-					{
-						class Attribute0
-						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="STRING";
-									value="Male01FRE";
-								};
-							};
-						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
-					};
-				};
-			};
+			dataType="Trigger";
+			position[]={6182.8989,48.220001,10370.669};
 			class Attributes
 			{
+				name="declencheur_brouilleur_1";
+				onActivation="hint ""Brouillage activé"";" \n "[player,actionIDSlot1] call BIS_fnc_holdActionRemove;" \n "call POPO_fnc_removeInterference;";
+				onDeactivation="hint ""Brouillage désactivé"";" \n "actionIDSlot1 = if (side player == west && alive player)  then " \n "{ " \n " [   " \n "   player,              " \n "   ""Parachutage de munitions"",             " \n "   ""HoldActionsPAA\holdAction_container_ca.paa"",    " \n "   ""HoldActionsPAA\holdAction_container_ca.paa"",      " \n "   ""player distance _target < 1"",         " \n "   ""player distance _target < 1"",         " \n "   {[west, ""AirBase""] sideChat ""Reçu. Nous sommes en chemin largage sur votre position !"";},                " \n "   {},                " \n "   {[spawn_inAirDelivery_1,""B_T_VTOL_01_Vehicle_F_Kimi"",""B_supplyCrate_F"",200] call POPO_fnc_ParachuteSupport;},       " \n "   {},                " \n "   [],                " \n "   1,                " \n "   1,                " \n "   false,               " \n "   false               " \n " ] call BIS_fnc_holdActionAdd; " \n "}; " \n "call POPO_fnc_addInterference;";
+				sizeA=4;
+				sizeB=4;
+				repeatable=1;
+				activationBy="WEST";
 			};
-			id=227;
-			atlOffset=0.12400007;
+			id=241;
+			type="EmptyDetectorAreaR50";
 		};
 		class Item24
 		{
-			dataType="Group";
-			side="Independent";
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6182.834,48.220501,10370.688};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=250;
+			type="VR_Area_01_circle_4_yellow_F";
+		};
+		class Item25
+		{
+			dataType="Layer";
+			name="Générateur scripté";
 			class Entities
 			{
 				items=1;
 				class Item0
 				{
-					dataType="Object";
-					class PositionInfo
+					dataType="Layer";
+					name="Générateur + interrupteur + marker scripté";
+					class Entities
 					{
-						position[]={5803.248,8.0488977,10392.432};
-					};
-					side="Independent";
-					flags=7;
-					class Attributes
-					{
-						init="this setPosATL ((nearestBuilding this) buildingPos 2);";
-					};
-					id=230;
-					type="TCN_elite_AA";
-					class CustomAttributes
-					{
-						class Attribute0
+						items=1;
+						class Item0
 						{
-							property="speaker";
-							expression="_this setspeaker _value;";
-							class Value
+							dataType="Layer";
+							name="éteindre les lumières Générateur scripter";
+							class Entities
 							{
-								class data
+								items=1;
+								class Item0
 								{
-									singleType="STRING";
-									value="Male02FRE";
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={6169.0293,48.827385,10385.517};
+										angles[]={0,4.8312054,0};
+									};
+									side="Empty";
+									class Attributes
+									{
+										init="call{DistanceToReach = 1000; " \n "this addAction " \n "[   " \n "    ""Couper le courant"",   " \n "    {   " \n "        params [""_target"", ""_caller"", ""_actionId"", ""_arguments""];   " \n " { " \n "   private _ticket = format [""LSS%1"", _forEachIndex]; " \n "  [_x, ""OFF""] remoteExec [""switchLight"", 0, _ticket];   " \n " } forEach nearestObjects [_caller, [], DistanceToReach]; " \n "  _target animateSource [""switchposition"",1];   " \n "  _target animateSource [""light"",0];   " \n "  _target setDamage 1;   " \n "    },   " \n "    [],   " \n "    1.5,   " \n "    true,   " \n "    true,   " \n "    """",   " \n "    ""alive _target"",   " \n "    3,   " \n "    false,   " \n "    """",   " \n "    """"   " \n "]; " \n "  " \n "this addAction   " \n "[   " \n "    ""Remettre le courant"",   " \n "    {   " \n "        params [""_target"", ""_caller"", ""_actionId"", ""_arguments""];   " \n " { " \n "    private _ticket = format [""LSS%1"", _forEachIndex]; " \n "    [_x, ""On""] remoteExec [""switchLight"", 0, _ticket];   " \n " } forEach nearestObjects [_caller, [], DistanceToReach]; " \n "  _target animateSource [""switchposition"",-1];   " \n "  _target animateSource [""light"",1];   " \n "  _target setDamage 0;   " \n "    },   " \n "    [],   " \n "    1.5,   " \n "    true,   " \n "    true,   " \n "    """",   " \n "    ""!alive _target"",   " \n "    3,   " \n "    false,   " \n "    """",   " \n "    """"   " \n "];}";
+										name="GeneratorLarge";
+									};
+									id=256;
+									type="Land_TransferSwitch_01_F";
+									atlOffset=0.99219894;
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="SwitchPosition";
+											expression="_this animateSource ['SwitchPosition',_value,true]";
+											class Value
+											{
+												class data
+												{
+													singleType="SCALAR";
+													value=-1;
+												};
+											};
+										};
+										nAttributes=1;
+									};
 								};
 							};
+							id=255;
+							atlOffset=0.99219894;
 						};
-						class Attribute1
-						{
-							property="pitch";
-							expression="_this setpitch _value;";
-							class Value
-							{
-								class data
-								{
-									singleType="SCALAR";
-									value=0.97000003;
-								};
-							};
-						};
-						nAttributes=2;
 					};
+					id=254;
+					atlOffset=0.99219894;
 				};
 			};
+			id=257;
+			atlOffset=0.99219894;
+		};
+		class Item26
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6182.9731,52.784386,10371.214};
+				angles[]={0,6.1326504,0};
+			};
+			side="Empty";
+			flags=5;
 			class Attributes
 			{
+				name="brouilleur";
 			};
-			id=229;
+			id=258;
+			type="RuggedTerminal_01_communications_hub_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="OpenTerminal";
+					expression="[_this,['Terminal_source','Terminal_source_sound','Terminal_source_sound_case_01','Terminal_source_sound_case_02'],_value*100,true] call bis_fnc_LinkTerminal_Animations";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=1;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="ProgressBar";
+					expression="_this animateSource ['Progress_source',_value*100,true]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=1;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 };
