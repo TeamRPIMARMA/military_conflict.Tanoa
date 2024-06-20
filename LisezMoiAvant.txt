@@ -1,3 +1,10 @@
+V 0.9:
+
+rajout: du son de la radio qui se coupe et rallume qaunt on quitte ou rentre de la zone du brouilleur
+amélioration: émission d'un son radio au moment de l'appel du support
+amélioration: de la fonction marker tracker maintenant le marker clignote sur map 
+correction: maintenant le brouillage s'exécute dans une zone définie et non sur toute la map
+
 V 0.8:
 
 Rajout : mise en place d'un système de brouillage

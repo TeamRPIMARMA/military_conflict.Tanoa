@@ -9,7 +9,7 @@ if (side player == west)  then
    "player distance _target < 10",         
    {},                
    {},                
-   {brouilleur animateSource ["Progress_source",0,false];deleteVehicle declencheur_brouilleur_1;call POPO_fnc_addInterference;call POPO_fnc_holdActionAddParachuteSupport;},       
+   {brouilleur animateSource ["Progress_source",0,false];brouilleur setDamage 1;deleteVehicle declencheur_brouilleur_1;call POPO_fnc_addInterference;call POPO_fnc_holdActionAddParachuteSupport;},       
    {},                
    [],                
    10,                
@@ -18,3 +18,6 @@ if (side player == west)  then
    false               
  ] remoteExec ["BIS_fnc_holdActionAdd", 0, brouilleur]; 
 };
+
+// Group Manager
+["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;

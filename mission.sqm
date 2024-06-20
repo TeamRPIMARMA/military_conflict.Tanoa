@@ -8,22 +8,22 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=261;
+		nextID=265;
 	};
 	class MarkerIDProvider
 	{
-		nextID=7;
+		nextID=9;
 	};
 	class LayerIndexProvider
 	{
-		nextID=926;
+		nextID=1214;
 	};
 	class Camera
 	{
-		pos[]={6184.8169,84.652695,10383.846};
-		dir[]={-0.040588185,-0.87241721,-0.48707473};
-		up[]={-0.072443575,0.48867857,-0.86936647};
-		aside[]={-0.99658024,8.9609603e-07,0.08304552};
+		pos[]={6183.1489,52.690769,10367.193};
+		dir[]={0.029641246,-0.75841987,0.65109193};
+		up[]={0.034496583,0.65158772,0.75774395};
+		aside[]={0.99898261,1.3217505e-07,-0.045479871};
 	};
 };
 binarizationWanted=0;
@@ -441,12 +441,12 @@ class Mission
 	};
 	class Entities
 	{
-		items=27;
+		items=29;
 		class Item0
 		{
 			dataType="Marker";
 			position[]={5788.5879,7.2600002,10272.218};
-			name="marker_0";
+			name="marker_area_0";
 			markerType="ELLIPSE";
 			type="";
 			colorName="ColorGUER";
@@ -1540,7 +1540,7 @@ class Mission
 															dataType="Object";
 															class PositionInfo
 															{
-																position[]={6182.4478,48.114155,10381.159};
+																position[]={6182.5337,48.113262,10381.94};
 																angles[]={0,4.6425757,0};
 															};
 															side="West";
@@ -2159,10 +2159,12 @@ class Mission
 			class Attributes
 			{
 				name="declencheur_brouilleur_1";
+				condition="player distance declencheur_brouilleur_1 < 4";
 				onActivation="hint ""Brouillage activé"";" \n "[player,actionIDSlot1] call BIS_fnc_holdActionRemove;" \n "call POPO_fnc_removeInterference;";
-				onDeactivation="hint ""Brouillage désactivé"";" \n "actionIDSlot1 = if (side player == west && alive player)  then " \n "{ " \n " [   " \n "   player,              " \n "   ""Parachutage de munitions"",             " \n "   ""HoldActionsPAA\holdAction_container_ca.paa"",    " \n "   ""HoldActionsPAA\holdAction_container_ca.paa"",      " \n "   ""player distance _target < 1"",         " \n "   ""player distance _target < 1"",         " \n "   {[west, ""AirBase""] sideChat ""Reçu. Nous sommes en chemin largage sur votre position !"";},                " \n "   {},                " \n "   {[spawn_inAirDelivery_1,""B_T_VTOL_01_Vehicle_F_Kimi"",""B_supplyCrate_F"",200] call POPO_fnc_ParachuteSupport;},       " \n "   {},                " \n "   [],                " \n "   1,                " \n "   1,                " \n "   false,               " \n "   false               " \n " ] call BIS_fnc_holdActionAdd; " \n "}; " \n "call POPO_fnc_addInterference;";
+				onDeactivation="hint ""Brouillage désactivé""; " \n "call POPO_fnc_holdActionAddParachuteSupport; " \n "call POPO_fnc_addInterference;";
 				sizeA=4;
 				sizeB=4;
+				sizeC=4;
 				repeatable=1;
 				activationBy="WEST";
 			};
@@ -2298,6 +2300,32 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item27
+		{
+			dataType="Marker";
+			position[]={6192.5811,55.507813,10455.372};
+			name="marker_8";
+			markerType="ELLIPSE";
+			type="";
+			a=50;
+			b=50;
+			id=263;
+		};
+		class Item28
+		{
+			dataType="Trigger";
+			position[]={6191.5142,48.8078,10382.43};
+			class Attributes
+			{
+				onActivation="[""\A3\music_f_epc\Music\C_EA_RadioMusic2.ogg"", brouilleur] call POPO_fnc_3Dsound;";
+				sizeA=0;
+				sizeB=0;
+				repeatable=1;
+				activationBy="ALPHA";
+			};
+			id=264;
+			type="EmptyDetector";
 		};
 	};
 };

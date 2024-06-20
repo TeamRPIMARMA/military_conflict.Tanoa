@@ -29,7 +29,7 @@
 
   # EXAMPLE # 
   [unit, number unit, getPosition marker, distance radius marker] call POPO_Server_fnc_SpawnUnitRandomBuilding;
-  [I_TCN_ELITE_INFANTRY_BUILDING, 400, "marker_0", 400] call POPO_fnc_SpawnUnitRandomBuilding;
+  [I_TCN_ELITE_INFANTRY_BUILDING, 400, "marker_area_0", 400] call POPO_fnc_SpawnUnitRandomBuilding;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fonction spawn aléatoirement des Hostages captifs random à l'intérieur de bâtiment avec les options 

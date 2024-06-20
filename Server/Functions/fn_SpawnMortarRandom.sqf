@@ -46,7 +46,7 @@ for "_i" from 1 to _number do // a loop repeating X times
     //_wp setWaypointType "scripted";
     //_wp setWaypointScript "A3\functions_f\waypoints\fn_wpArtillery.sqf";
     //_crew commandArtilleryFire [[getPosASL player], "8Rnd_82mm_Mo_shells", 3];
-    //[_wp, getMarkerPos "marker_0", objnull, 4, "8Rnd_82mm_Mo_shells"] call BIS_fnc_wpArtillery;
+    //[_wp, getMarkerPos "marker_area_0", objnull, 4, "8Rnd_82mm_Mo_shells"] call BIS_fnc_wpArtillery;
     if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
 };
 

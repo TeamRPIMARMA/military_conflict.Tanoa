@@ -3,4 +3,5 @@ if (!isServer && !hasInterface) then {
 	Any_HC_present = true; publicVariable "Any_HC_present";
 	if (name player == "HC_1") then {HC_1Present = true; publicVariable "HC_1Present"};
 	if (name player == "HC_2") then {HC_2Present = true; publicVariable "HC_2Present"};
+	if (name player == "HC_3") then {HC_3Present = true; publicVariable "HC_3Present"};
 };

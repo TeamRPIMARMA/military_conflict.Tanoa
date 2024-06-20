@@ -33,7 +33,7 @@
 
   # EXAMPLE # 
   [unit, number unit, getPosition marker, distance radius marker] spawn POPO_fnc_SpawnRandomHostageBuilding;
-  [Hostage, 5, marker_0, 100] spawn POPO_fnc_SpawnRandomHostageBuilding;
+  [Hostage, 5, marker_area_0, 100] spawn POPO_fnc_SpawnRandomHostageBuilding;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // Fonction spawn aléatoirement des Hostages captifs random à l'intérieur de bâtiment avec les options 

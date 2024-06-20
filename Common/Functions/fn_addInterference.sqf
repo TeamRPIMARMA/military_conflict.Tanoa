@@ -57,4 +57,6 @@ player assignItem "B_UavTerminal";
 player assignItem "ACE_microDAGR";
 player assignItem "ItemMap";
 
+playSound3D ["lxRF\sounds_rf\radio\radio_on.wss", player, true, getPosASL player,1,1,0];
+
 if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["Retourne, %1", player];};

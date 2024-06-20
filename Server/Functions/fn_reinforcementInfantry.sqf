@@ -29,7 +29,7 @@
 
   # EXAMPLE # 
     pas plus de 2 groupes sinon les unités ne bouge plus !!!
-    ["marker_0",I_TCN_BANDITS_INFANTRY,2] call POPO_fnc_reinforcementInfantry;
+    ["marker_area_0",I_TCN_BANDITS_INFANTRY,2] call POPO_fnc_reinforcementInfantry;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 params ["_marker", "_type", "_number"];

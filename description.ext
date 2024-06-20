@@ -1,5 +1,6 @@
 #include "Rsc\Parameters.hpp"
 #include "Rsc\Game.hpp"
+#include "Rsc\Sounds.hpp"
 class CfgFunctions {
     #include "Rsc\Functions.hpp"
 };

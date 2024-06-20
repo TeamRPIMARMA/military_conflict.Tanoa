@@ -92,12 +92,11 @@ if ( _typeAirVehicle isEqualTo "B_T_VTOL_01_Vehicle_F_Kimi") then
   _wp2 setWaypointType "MOVE";  
   _wp2 setWaypointSpeed "FULL";   
   _wp2 setWaypointBehaviour "AWARE";   
-  _wp2 setWaypointStatements ["true", "deleteVehicleCrew V44Created;{ V44Created deleteVehicleCrew _x } forEach crew V44Created;[west, 'AirBase'] sideChat localize 'STR_CTI_POPO_HQ_MESSAGE_PARADROP_RETURN_BASE';"];
+  _wp2 setWaypointStatements ["true", "deleteVehicleCrew V44Created;{ V44Created deleteVehicleCrew _x } forEach crew V44Created;[west, 'AirBase'] sideChat localize 'STR_CTI_POPO_HQ_MESSAGE_PARADROP_RETURN_BASE';playsound 'RadioReturnBase';"];
 
   } else {
 	hint "mettre la bonne classe 'B_T_VTOL_01_Vehicle_F_Kimi'";
 };
 
 true  
-
 
