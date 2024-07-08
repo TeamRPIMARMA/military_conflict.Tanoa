@@ -22,6 +22,9 @@ call POPO_fnc_initParametersServer;
 ["marker_area_0","['marker_area_0',I_TCN_BANDITS_INFANTRY ,4] call POPO_fnc_reinforcementInfantry","WEST","GUER D","","this",false,""] call POPO_fnc_CreateTriggerGetMarker;
 ["marker_area_0","[independent_Random_Spawn_vehicle,I_TCN_LIGHT_VEHICLE ,2] call POPO_fnc_reinforcementVehicle","WEST","GUER D","","this",false,""] call POPO_fnc_CreateTriggerGetMarker;
 
+Popo_ParaDrop_Player = true;
+publicVariable "Popo_ParaDrop_Player";
+
 // Intro
 /*
 if (time < 10) then

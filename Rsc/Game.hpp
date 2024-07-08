@@ -6,11 +6,11 @@ respawnDelay = 1;
 //respawnDialog=0;
 
 //--- Require briefing.html to show up.
-onLoadMission = "military conflict V 0.9";
+onLoadMission = "military conflict V 0.10";
 onLoadMissionTime = false;
 onLoadName = "military conflict";
 
-briefingName = "military conflict V 0.9";
+briefingName = "military conflict V 0.10";
 
 //--- ArmA 3 Specifics
 dev = "POPO";

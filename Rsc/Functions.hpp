@@ -16,9 +16,15 @@ class POPO {
         class SpawnHostageRandom            {file = "Common\Functions\fn_SpawnHostageRandom.sqf";};
         class CreateTriggerGetMarker        {file = "Common\Functions\fn_CreateTriggerGetMarker.sqf";};
         class ParachuteSupport              {file = "Common\Functions\fn_ParachuteSupport.sqf";};
-        class MarkerTracker                 {file = "Common\Functions\fn_MarkerTracker.sqf";};  
+        class MarkerTracker                 {file = "Common\Functions\fn_MarkerTracker.sqf";};
+        class MarkerTrackerLocal            {file = "Common\Functions\fn_MarkerTrackerLocal.sqf";};  
         class addInterference               {file = "Common\Functions\fn_addInterference.sqf";};
         class removeInterference            {file = "Common\Functions\fn_removeInterference.sqf";};
+        class loadAmmoboxArsenal            {file = "Common\Functions\fn_loadAmmoboxArsenal.sqf";};
+        class unloadAmmoboxArsenal          {file = "Common\Functions\fn_unloadAmmoboxArsenal.sqf";};
+        class loadmortarAmmoBox             {file = "Common\Functions\fn_loadmortarAmmoBox.sqf";};
+        class unloadmortarAmmoBox           {file = "Common\Functions\fn_unloadmortarAmmoBox.sqf";};
+        class AllClearInventory             {file = "Common\Functions\fn_AllClearInventory.sqf";};
 // problem with this function -- class SpawnHostageRandomBuilding    {file = "Common\Functions\fn_SpawnHostageRandomBuilding.sqf";};
 
         // Config
@@ -37,6 +43,7 @@ class POPO {
 
         // BLUFOR Logistics Support
         class BLUFORAmmobox                 {file = "Common\Config\Faction\BLUFOR\fn_BLUFORAmmobox.sqf";};
+
     };
 
     class Server
@@ -59,6 +66,11 @@ class POPO {
     { 
         // HoldActionAdd
         class holdActionAddParachuteSupport {file = "Client\holdActionAdd\fn_holdActionAddParachuteSupport.sqf";};
+        class holdActionAdd                 {file = "Client\holdActionAdd\fn_holdActionAdd.sqf";};
+        class holdActionLoadAmmoboxArsenal  {file = "Client\holdActionAdd\fn_holdActionLoadAmmoboxArsenal.sqf";};
+        class holdActionUnloadAmmoboxArsenal{file = "Client\holdActionAdd\fn_holdActionUnloadAmmoboxArsenal.sqf";};
+        class holdActionLoadMotarAmmobox    {file = "Client\holdActionAdd\fn_holdActionLoadMotarAmmobox.sqf";};
+        class holdActionUnloadMotarAmmobox  {file = "Client\holdActionAdd\fn_holdActionUnloadMotarAmmobox.sqf";};
     };
 };
 

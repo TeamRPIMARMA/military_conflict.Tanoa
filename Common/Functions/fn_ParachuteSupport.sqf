@@ -24,6 +24,7 @@
   # DEPENDENCIES #
   Common\Config\Faction\BLUFOR\Logistics_Support\fn_BLUFORAmmobox.sqf
   Common\Functions\fn_MarkerTracker.sqf
+  Client\holdActionAdd\fn_holdActionAdd.sqf
 
   # EXAMPLE #
   For slingload
@@ -35,8 +36,8 @@
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 params ["_spawn", "_typeAirVehicle", "_typeCargoVehicle","_altitude"];
-//private "_AirVehicleCreated";
-//private "_CargoVehicleCreated";
+
+_reloadtime = 20;
 /*
 // For SlingLoad
 if (_typeAirVehicle isEqualTo "B_Heli_Transport_03_F") then 
@@ -66,37 +67,65 @@ if (_typeAirVehicle isEqualTo "B_Heli_Transport_03_F") then
 };
 */
 
-  
 // For paradrop
-if ( _typeAirVehicle isEqualTo "B_T_VTOL_01_Vehicle_F_Kimi") then 
+if (Popo_ParaDrop_Player isEqualTo true) then 
   {
+
+  [west, "HQ"] sideChat localize "STR_CTI_POPO_HQ_MESSAGE_PARADROP";playsound "RadioBackOnPosition";
+
+  Popo_ParaDrop_Player = false;
+	publicVariable "Popo_ParaDrop_Player";
+
   _DirSpawn = getDir _spawn; 
-  CargoV44Created = createVehicle [_typeCargoVehicle,_spawn,[],0,"NONE"];
-  if (typeof CargoV44Created isEqualTo "B_supplyCrate_F") then {[CargoV44Created] call POPO_fnc_BLUFORAmmobox;}; 
-  V44Created = createVehicle [_typeAirVehicle,_spawn,[],0,"FLY"]; 
-  _pilot = createVehicleCrew V44Created;
-  V44Created setDir _DirSpawn;
-  V44Created setPosATL [getPosATL V44Created select 0, getPosATL V44Created select 1, _altitude];
-  V44Created flyInHeight _altitude;
-  CargoV44Created setDir _DirSpawn;
-  V44Created setVehicleCargo CargoV44Created;
+  _CargoV44Created = createVehicle [_typeCargoVehicle,_spawn,[],0,"NONE"];
+  // HoldAction disable Tracker GPS
+  //[_CargoV44Created] call POPO_fnc_holdActionAdd;
+  if (Typeof _CargoV44Created isEqualTo "B_supplyCrate_F") then {[_CargoV44Created] call POPO_fnc_BLUFORAmmobox;}; 
+  if (typeOf _CargoV44Created isEqualTo "maestro_B_T_Pickup_Comms_rf_cage") then {_ammoBoxArsenal = "B_supplyCrate_F" createVehicle position _CargoV44Created;[_ammoBoxArsenal] call POPO_fnc_BLUFORAmmobox;[ _CargoV44Created, _ammoBoxArsenal] call POPO_fnc_loadAmmoboxArsenal;Popo_AmmoBoxArsenal_AttachTo = _ammoBoxArsenal;publicVariable "Popo_mortarAmmoBox_AttachTo";[ _CargoV44Created] call POPO_fnc_holdActionUnloadAmmoboxArsenal;[ _CargoV44Created] call POPO_fnc_holdActionLoadAmmoboxArsenal;Popo_Vehicle_AttachTo = _CargoV44Created;publicVariable "Popo_Vehicle_AttachTo";_mortarAmmoBox = "Box_Syndicate_WpsLaunch_F" createVehicle position _CargoV44Created;[_mortarAmmoBox] call POPO_fnc_AllClearInventory;[ _CargoV44Created, _mortarAmmoBox] call POPO_fnc_loadmortarAmmoBox;Popo_mortarAmmoBox_AttachTo = _mortarAmmoBox;publicVariable "Popo_mortarAmmoBox_AttachTo";[ _CargoV44Created] call POPO_fnc_holdActionLoadMotarAmmobox;[ _CargoV44Created] call POPO_fnc_holdActionUnloadMotarAmmobox;};
+  _V44Created = createVehicle [_typeAirVehicle,_spawn,[],0,"FLY"]; 
+  _pilot = createVehicleCrew _V44Created;
+  _V44Created setDir _DirSpawn;
+  _V44Created setPosATL [getPosATL _V44Created select 0, getPosATL _V44Created select 1, _altitude];
+  _V44Created flyInHeight _altitude;
+  _CargoV44Created setDir _DirSpawn;
+  _V44Created setVehicleCargo _CargoV44Created;
   
-  _pilot setCombatMode "YELLOW"; 
+  _pilot setCombatMode "BLUE"; 
   _wp1 = _pilot addWaypoint [getPosASL player, -1]; 
   _wp1 setWaypointType "MOVE";  
   _wp1 setWaypointSpeed "NORMAL";   
   _wp1 setWaypointBehaviour "AWARE";
-  _wp1 setWaypointStatements ["true", "objNull setVehicleCargo CargoV44Created;[CargoV44Created] spawn POPO_fnc_MarkerTracker;[west, 'AirBase'] sideChat localize 'STR_CTI_POPO_HQ_MESSAGE_DROPPING_AMMOBOX';"]; 
+  _wp1 setWaypointStatements ["true", "Popo_paradropOK = true"]; 
+
+  waitUntil {Popo_paradropOK isEqualTo true};
+  objNull setVehicleCargo _CargoV44Created;[_CargoV44Created] spawn POPO_fnc_MarkerTracker;[west, 'HQ'] sideChat localize 'STR_CTI_POPO_HQ_MESSAGE_DROPPING_AMMOBOX';
+  Popo_paradropOK = false;
 
   _wp2 = _pilot addWaypoint [getPosASL spawn_outChopperDelivery_1, -1];  
   _wp2 setWaypointType "MOVE";  
   _wp2 setWaypointSpeed "FULL";   
   _wp2 setWaypointBehaviour "AWARE";   
-  _wp2 setWaypointStatements ["true", "deleteVehicleCrew V44Created;{ V44Created deleteVehicleCrew _x } forEach crew V44Created;[west, 'AirBase'] sideChat localize 'STR_CTI_POPO_HQ_MESSAGE_PARADROP_RETURN_BASE';playsound 'RadioReturnBase';"];
+  _wp2 setWaypointStatements ["true", "Popo_returnBaseOK = true"];
+
+  waitUntil {Popo_returnBaseOK isEqualTo true};
+  deleteVehicleCrew _V44Created;{ _V44Created deleteVehicleCrew _x } forEach crew _V44Created;[west, 'HQ'] sideChat localize 'STR_CTI_POPO_HQ_MESSAGE_PARADROP_RETURN_BASE';playsound 'RadioReturnBase';
+  Popo_returnBaseOK = false;
+
+  if (typeOf _CargoV44Created isEqualTo "maestro_B_T_Pickup_Comms_rf_cage") then {[west, Popo_Vehicle_AttachTo, "MHQ"] call BIS_fnc_addRespawnPosition;};
 
   } else {
-	hint "mettre la bonne classe 'B_T_VTOL_01_Vehicle_F_Kimi'";
+	hint format ["Largage non disponible."];
 };
+
+sleep _reloadtime;
+
+trackerGPS = false;
+
+hint format ["Tracker GPS OFF Largage disponible."];
+
+Popo_ParaDrop_Player = true;
+publicVariable "Popo_ParaDrop_Player";
 
 true  
 
+ 

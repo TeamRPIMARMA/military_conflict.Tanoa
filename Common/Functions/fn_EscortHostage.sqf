@@ -71,4 +71,5 @@ _Hostage addVest "V_EOD_olive_F"; // V_Press_F
 {_Hostage enableAI _x} forEach ["FSM", "AUTOTARGET","TARGET", "MOVE"];
 [_Hostage] join (group player); 
 _Hostage doFollow (leader group player);
+
 true

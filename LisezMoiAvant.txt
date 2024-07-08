@@ -1,6 +1,14 @@
+V 0.10:
+
+rajout: maintenant les renforts aériens se déclenchent seulement si un aéronef rendre dans la zone et détecté par les radars.
+amélioration: maintenant un cool down est mit en place ainsi que des messages radios sonore et manuscrit pour la function ParachuteSupport.
+amélioration: du marqueur tracker, maintenant il clignote sur la map.
+rajout: maintenant on peut se faire parachuter le MHQ avec ses caisses de munitions et il est un respawn mobile, avec un menu pour charger et décharger ses caisses. 
+
+
 V 0.9:
 
-rajout: du son de la radio qui se coupe et rallume qaunt on quitte ou rentre de la zone du brouilleur
+rajout: du son de la radio qui se coupe et rallume quant on quitte ou rentre dans la zone du brouilleur
 amélioration: émission d'un son radio au moment de l'appel du support
 amélioration: de la fonction marker tracker maintenant le marker clignote sur map 
 correction: maintenant le brouillage s'exécute dans une zone définie et non sur toute la map

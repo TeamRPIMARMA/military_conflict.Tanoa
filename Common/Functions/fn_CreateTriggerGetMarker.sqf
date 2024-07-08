@@ -44,5 +44,3 @@ _nameTrigger setTriggerStatements [ _condition, _onActivation, _onDeactivation];
 if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["déclencheur créé"];};
 
 true
-
-
