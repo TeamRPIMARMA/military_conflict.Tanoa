@@ -3,12 +3,12 @@
 	Script: 		Common\Functions\fn_ParachuteSupport.sqf
 	Alias:			
 	Description:			      
-          FR = La fonction permet de faire parachuter des véhicules compatible vehicle in vehicle. 
+          FR = La fonction permet de faire parachuter des véhicules ou matériels compatible (vehicle in vehicle). 
           
-          EN = The function allows vehicles compatible with vehicle in vehicle to parachute.
+          EN = The function allows compatible vehicles or equipment to be parachuted with (vehicle in vehicle).
 	Author: 		Popo
 	Creation Date:	04-06-2024
-	Revision Date:	05-06-2024
+	Revision Date:	19-07-2024
 	
   # PARAMETERS #
   0	[array]: of spawn
@@ -27,48 +27,17 @@
   Client\holdActionAdd\fn_holdActionAdd.sqf
 
   # EXAMPLE #
-  For slingload
-  [spawn_inAirDelivery_1,"B_Heli_Transport_03_F","B_T_LSV_01_unarmed_F",200] call POPO_fnc_ParachuteSupport;
   For paradrop vehicle
-  [spawn_inAirDelivery_1,"B_T_VTOL_01_Vehicle_F_Kimi","B_T_LSV_01_unarmed_F",200] call POPO_fnc_ParachuteSupport;
+  [spawn_inAirDelivery_1,"B_T_VTOL_01_Vehicle_F_Kimi","B_T_LSV_01_unarmed_F",200,30] call POPO_fnc_ParachuteSupport;
   For paradrop ammobox
-  [spawn_inAirDelivery_1,"B_T_VTOL_01_Vehicle_F_Kimi","B_supplyCrate_F",200] call POPO_fnc_ParachuteSupport;
+  [spawn_inAirDelivery_1,"B_T_VTOL_01_Vehicle_F_Kimi","B_supplyCrate_F",200,60] call POPO_fnc_ParachuteSupport;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-params ["_spawn", "_typeAirVehicle", "_typeCargoVehicle","_altitude"];
+params ["_spawn", "_typeAirVehicle", "_typeCargoVehicle","_altitude","_reloadtime"];
 
-_reloadtime = 20;
-/*
-// For SlingLoad
-if (_typeAirVehicle isEqualTo "B_Heli_Transport_03_F") then 
-{
-  _DirSpawn = getDir _spawn; 
-  CargoCH47Created = createVehicle [_typeCargoVehicle,_spawn,[],0,"NONE"];
-  CH47Created = createVehicle [_typeAirVehicle,_spawn,[],0,"FLY"]; 
-  _pilot = createVehicleCrew CH47Created;
-  CH47Created setDir _DirSpawn;
-  CH47Created setPosATL [getPosATL CH47Created select 0, getPosATL CH47Created select 1, _altitude];
-  CH47Created flyInHeight _altitude;
-  CargoCH47Created setDir _DirSpawn;
-  CH47Created setSlingLoad CargoCH47Created;
+_Time = _reloadtime * 60;
 
-  _pilot setCombatMode "YELLOW"; 
-  _wp1 = _pilot addWaypoint [getPosASL player, -1]; 
-  _wp1 setWaypointType "Unhook";  
-  _wp1 setWaypointSpeed "NORMAL";   
-  _wp1 setWaypointBehaviour "AWARE";   
-    
-
-  _wp2 = _pilot addWaypoint [getPosASL spawn_outChopperDelivery_1, -1];  
-  _wp2 setWaypointType "MOVE";  
-  _wp2 setWaypointSpeed "FULL";   
-  _wp2 setWaypointBehaviour "AWARE";   
-  _wp2 setWaypointStatements ["true", "deleteVehicleCrew CH47Created;{ CH47Created deleteVehicleCrew _x } forEach crew CH47Created"];
-};
-*/
-
-// For paradrop
-if (Popo_ParaDrop_Player isEqualTo true) then 
+if (Popo_ParaDrop_Player isEqualTo true && _typeAirVehicle isEqualTo "B_T_VTOL_01_Vehicle_F_Kimi") then 
   {
 
   [west, "HQ"] sideChat localize "STR_CTI_POPO_HQ_MESSAGE_PARADROP";playsound "RadioBackOnPosition";
@@ -114,14 +83,16 @@ if (Popo_ParaDrop_Player isEqualTo true) then
   if (typeOf _CargoV44Created isEqualTo "maestro_B_T_Pickup_Comms_rf_cage") then {[west, Popo_Vehicle_AttachTo, "MHQ"] call BIS_fnc_addRespawnPosition;};
 
   } else {
-	hint format ["Largage non disponible."];
+	hint format [Localize "STR_CTI_POPO_HELP_MESSAGE_DROP_NOT_AVAIBLE"];
 };
 
-sleep _reloadtime;
+sleep _Time;
 
 trackerGPS = false;
 
-hint format ["Tracker GPS OFF Largage disponible."];
+sleep 5;
+
+hint format [Localize "STR_CTI_POPO_HELP_MESSAGE_DROP_AVAIBLE"];
 
 Popo_ParaDrop_Player = true;
 publicVariable "Popo_ParaDrop_Player";

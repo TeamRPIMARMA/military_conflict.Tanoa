@@ -39,7 +39,7 @@ for "_i" from 1 to _number do
     _spawnPos = [markerPos _marker, 0, (RANDOM 360)] call BIS_fnc_relPos; 
     _spawnPos = [_spawnPos, 1, 150, 3, 0, 20, 0] call BIS_fnc_findSafePos;             
     _grpCeated = [_spawnPos, Independent, _type,[],[],[0.10,0.25]] call BIS_fnc_spawnGroup;
-    [_grpCeated,SYNDIKAT_INFskill,independent] call POPO_fnc_SkillSet;
+    [_grpCeated,BANDITS_INFskill,independent] call POPO_fnc_SkillSet;
     _grpCeated setCombatMode "RED";
     _wp = _grpCeated addWaypoint [getPosASL player, -1];  
     _wp setWaypointType "SAD";   

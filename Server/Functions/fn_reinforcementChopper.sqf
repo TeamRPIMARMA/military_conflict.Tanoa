@@ -46,7 +46,7 @@ for "_i" from 1 to _number do { // -- On répète X fois le code pour X véhicul
     _ChopperCreated setDir _DirSpawn;
     detach _ChopperCreated;   
     _pilot = createVehicleCrew _ChopperCreated;
-    [_pilot,SYNDIKAT_AIRskill,independent] call POPO_fnc_SkillSet;
+    [_pilot,BANDITS_AIRskill,independent] call POPO_fnc_SkillSet;
     if (typeOf _ChopperCreated isEqualTo "I_Heli_light_03_dynamicLoadout_F") then { _unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 1];_unitCargo = _pilot createUnit ["I_C_Soldier_Para_4_F", _pilot, [], 0, "NONE"];_unitCargo moveInCargo [_ChopperCreated, 7];};
     _pilot setCombatMode "RED";  
     _wp = _pilot addWaypoint [getPosASL player, -1];  

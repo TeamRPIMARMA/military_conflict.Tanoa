@@ -4,7 +4,7 @@ if (alive _object) then
 {
 	[  
 		 _object,             
-   		"désactiver le GPS",             
+   		localize " STR_CTI_POPO_DISABLE_GPS",             
    		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",    
    		"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",    
    		"player distance _target < 3",         

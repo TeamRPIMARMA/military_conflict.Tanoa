@@ -64,3 +64,18 @@ PMC_STAskill = [
 1, // commanding
 1  // general
 ];
+
+PMC_INFskill = _PMC_INFskill;
+publicVariable "PMC_INFskill";
+
+BANDITS_ARMskill = _BANDITS_ARMskill;
+publicVariable "BANDITS_ARMskill";
+
+BANDITS_LIGskill = _BANDITS_LIGskill;
+publicVariable "BANDITS_LIGskill";
+
+BANDITS_AIRskill = _BANDITS_AIRskill;
+publicVariable "BANDITS_AIRskill";
+
+BANDITS_STAskill = _BANDITS_STAskill;
+publicVariable "BANDITS_STAskill";

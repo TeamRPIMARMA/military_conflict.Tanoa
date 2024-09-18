@@ -10,7 +10,7 @@
           
 	Author: 		Popo
 	Creation Date:	29-05-2024
-	Revision Date:	03-06-2024
+	Revision Date:	11-07-2024
 	
   # PARAMETERS #
   0	[array]: The type of units to create
@@ -24,7 +24,7 @@
   # DEPENDENCIES # 
 
   # EXAMPLE # 
-  [_UnitsCreated,INFskill] call POPO_fnc_SkillSet;
+  [_pilot,BANDITS_AIRskill,independent] call POPO_fnc_SkillSet;
 */
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 params ["_unit","_skillset","_side"];
@@ -50,16 +50,17 @@ _skillreloadSpeed = _unit skill "reloadSpeed";
 _skillcommanding = _unit skill "commanding";
 _skillgeneral = _unit skill "general";
 
-// displays the result
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["aimingAccuracy, %1", _skillaimingAccuracy];};
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["aimingShake, %1", _skillaimingShake];};
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["aimingSpeed, %1", _skillaimingSpeed];};
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["spotDistance, %1", _skillspotDistance];};
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["spotTime, %1", _skillspotTime];};
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["courage, %1", _skillcourage];};
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["reloadSpeed, %1", _skillreloadSpeed];};
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["commanding, %1", _skillcommanding];};
-if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["general, %1", _skillgeneral];};
+if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {
+	player globalChat format ["aimingAccuracy, %1", _skillaimingAccuracy];
+	player globalChat format ["aimingShake, %1", _skillaimingShake];	
+	player globalChat format ["aimingSpeed, %1", _skillaimingSpeed];
+	player globalChat format ["spotDistance, %1", _skillspotDistance];
+	player globalChat format ["spotTime, %1", _skillspotTime];
+	player globalChat format ["courage, %1", _skillcourage];
+	player globalChat format ["reloadSpeed, %1", _skillreloadSpeed];
+	player globalChat format ["commanding, %1", _skillcommanding];
+	player globalChat format ["general, %1", _skillgeneral];
+};
 
 true
 

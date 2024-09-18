@@ -50,7 +50,7 @@ for "_i" from 1 to _number do // a loop repeating X times
   //_child setDir (_parentDir + (_childDir - _parentDir))
   //_UnitsCreated setDir random 360;
   //{_UnitsCreated DisableAI _x} forEach ["MOVE"];
-  [_UnitsCreated,SYNDIKAT_INFskill,independent] call POPO_fnc_SkillSet;
+  [_UnitsCreated,BANDITS_INFskill,independent] call POPO_fnc_SkillSet;
   if (CTI_POPO_Debug_ENABLE isEqualTo 1) then {player globalChat format ["%1", _i];};
 };
 

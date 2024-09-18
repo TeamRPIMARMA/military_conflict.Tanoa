@@ -46,7 +46,7 @@ for "_i" from 1 to _number do { // -- On répète X fois le code pour X véhicul
     _VehicleCreated setDir _DirSpawn;
     _VehicleCreated attachTo [ _select_spawn, [0, 0, 2]];
     detach _VehicleCreated;
-    [_crew,SYNDIKAT_LIGskill,independent] call POPO_fnc_SkillSet;
+    [_crew,BANDITS_LIGskill,independent] call POPO_fnc_SkillSet;
     //if (typeOf _veh isEqualTo "O_T_MBT_04_command_F") then {[_veh, ["Grey",1],["showCamonetHull",1,"showCamonetTurret",1]] call BIS_fnc_initVehicle;};
     //if (typeOf _veh isEqualTo "O_T_APC_Tracked_02_30mm_lxWS") then {[_veh, ["Grey",1],["showTracks",0,"showCamonetHull",1,"showBags",0,"showSLATHull",0]] call BIS_fnc_initVehicle;};
     _crew setCombatMode "RED";  

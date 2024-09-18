@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=304;
+		nextID=305;
 	};
 	class MarkerIDProvider
 	{
@@ -16,11 +16,11 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=1646;
+		nextID=1694;
 	};
 	class Camera
 	{
-		pos[]={6178.1772,54.433479,10384.232};
+		pos[]={6182.0859,54.433479,10388.045};
 		dir[]={0.90669298,-0.403337,-0.12345653};
 		up[]={0.39966524,0.91501802,-0.054418739};
 		aside[]={-0.13491909,-3.4347613e-07,-0.9908722};
@@ -2372,7 +2372,7 @@ class Mission
 			{
 				name="radarReinforcement_2";
 				condition="{vehicle _x iskindof ""air""} count thislist > 0;";
-				onActivation="hint ""avion détecté"";[Spawn_Plane_2, independent_ReinforcementPlane ,1] call POPO_fnc_reinforcementPlane;";
+				onActivation="hint ""avion détecté"";[Spawn_Plane_2, independent_ReinforcementPlane ,1] call POPO_fnc_reinforcementPlane;[east, 'HQ'] sideChat ""ennemi aéronef détecté !!!"";";
 				onDeactivation="hint ""avion non détecté"";";
 				sizeA=8000;
 				sizeB=8000;
@@ -2713,7 +2713,7 @@ class Mission
 			{
 				name="radarReinforcement_1";
 				condition="{vehicle _x iskindof ""air""} count thislist > 0;";
-				onActivation="hint ""avion détecté"";[Spawn_Plane_1, independent_ReinforcementPlane ,1] call POPO_fnc_reinforcementPlane;";
+				onActivation="hint ""avion détecté"";[Spawn_Plane_1, independent_ReinforcementPlane ,1] call POPO_fnc_reinforcementPlane;[east, 'HQ'] sideChat ""ennemi aéronef détecté !!!"";";
 				onDeactivation="hint ""avion non détecté"";";
 				sizeA=8000;
 				sizeB=8000;

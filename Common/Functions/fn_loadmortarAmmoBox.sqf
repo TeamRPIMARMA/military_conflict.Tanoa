@@ -32,7 +32,7 @@ if (_ammoBox distance _vehicle < 10) then
 {
   _ammoBox attachTo [_vehicle, [-0.08, -0.5, 0.2]];
   } else {
-  hint "la caisse est trop loin";
+  hint Localize "STR_CTI_POPO_HELP_MESSAGE_THE_BOX_IS_TOO_FAR";
 };
 
 _ammoBox addEventHandler ["Killed", {

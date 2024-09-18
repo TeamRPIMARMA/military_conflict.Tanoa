@@ -32,14 +32,14 @@ publicVariable "trackerGPSLocal";
 
 while {alive _object && trackerGPSLocal isEqualTo true} do
 {
-  _marker = createMarkerLocal ["markerT_1", _object];
-  _marker setMarkerShapeLocal "ICON";
-  _marker setMarkerColorLocal "ColorYellow";
-  _marker setMarkerTypeLocal "mil_dot";
-  _marker setMarkerPosLocal getpos _object;
-  _marker setMarkerTextLocal "";
+  _marker1 = createMarkerLocal ["markerT_1", _object];
+  _marker1 setMarkerShapeLocal "ICON";
+  _marker1 setMarkerColorLocal "ColorYellow";
+  _marker1 setMarkerTypeLocal "mil_dot";
+  _marker1 setMarkerPosLocal getpos _object;
+  _marker1 setMarkerTextLocal "";
   sleep 1;
-  deleteMarkerLocal _marker;
+  deleteMarkerLocal _marker1;
   _marker2 = createMarkerLocal ["markerT_2", _object];
   _marker2 setMarkerShapeLocal "";
   _marker2 setMarkerAlphaLocal 0;
@@ -50,11 +50,11 @@ while {alive _object && trackerGPSLocal isEqualTo true} do
   sleep 1;
   if (trackerGPSLocal isEqualTo false) exitWith 
 		{
-			hint "GPS OFF";
+			hint Localize "STR_CTI_POPO_HELP_MESSAGE_BEACON_OFF";
 		};
 };
 
-deleteMarkerLocal _marker;
+deleteMarkerLocal _marker1;
 deleteMarkerLocal _marker2;
 
 true

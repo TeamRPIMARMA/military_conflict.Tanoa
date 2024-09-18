@@ -4,11 +4,11 @@ if (alive _vehicle) then
 { 
  [   
    _vehicle,              
-   "charger la caisse dans la benne",             
+   localize "STR_CTI_POPO_LOAD_CRATE_INTO_THE_DUMPSTER",             
    "\a3\data_f_destroyer\data\UI\IGUI\Cfg\holdactions\holdAction_loadVehicle_ca.paa",    
    "\a3\data_f_destroyer\data\UI\IGUI\Cfg\holdactions\holdAction_loadVehicle_ca.paa",    
-   "player distance _target < 10",         
-   "player distance _target < 10",         
+   "player distance _target < 3",         
+   "player distance _target < 3",         
    {},                
    {},                
    {[Popo_Vehicle_AttachTo, Popo_AmmoBoxArsenal_AttachTo] call POPO_fnc_loadAmmoboxArsenal;},       

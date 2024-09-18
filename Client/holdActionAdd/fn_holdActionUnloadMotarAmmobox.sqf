@@ -4,11 +4,11 @@ if (alive _vehicle) then
 { 
  [   
    _vehicle,              
-   "Décharger la caisse sur la galerie",             
+   localize "STR_CTI_POPO_UNLOAD_CRATE_ON_THE_GALLERY",             
    "\a3\data_f_destroyer\data\UI\IGUI\Cfg\holdactions\holdAction_unloadVehicle_ca.paa",    
    "\a3\data_f_destroyer\data\UI\IGUI\Cfg\holdactions\holdAction_unloadVehicle_ca.paa",    
-   "player distance _target < 10",         
-   "player distance _target < 10",         
+   "player distance _target < 3",         
+   "player distance _target < 3",         
    {},                
    {},                
    {[Popo_Vehicle_AttachTo, Popo_mortarAmmoBox_AttachTo] call POPO_fnc_unloadmortarAmmoBox;},       

@@ -31,11 +31,11 @@ class POPO {
         class independantAISkill            {file = "Common\Config\AI_Skill\fn_independantAISkill.sqf";};
         class opforAISkill                  {file = "Common\Config\AI_Skill\fn_opforAISkill.sqf";};
 
-        //Faction
+        // Faction
         class factionCivilian               {file = "Common\Config\Faction\CIVILIAN\fn_factionCivilian.sqf";};
         class factionOpfor                  {file = "Common\Config\Faction\OPFOR\fn_factionOpfor.sqf";};
 
-        //Faction independent
+        // Faction independent
         class InfantryTCN                   {file = "Common\Config\Faction\INDEPENDENT\TCN\fn_InfantryTCN.sqf";};
         class LightVehicleTCN               {file = "Common\Config\Faction\INDEPENDENT\TCN\fn_LightVehicleTCN.sqf";};
         class ShipTCN                       {file = "Common\Config\Faction\INDEPENDENT\TCN\fn_ShipTCN.sqf";};
@@ -66,7 +66,7 @@ class POPO {
     { 
         // HoldActionAdd
         class holdActionAddParachuteSupport {file = "Client\holdActionAdd\fn_holdActionAddParachuteSupport.sqf";};
-        class holdActionAdd                 {file = "Client\holdActionAdd\fn_holdActionAdd.sqf";};
+        class holdActionAddDisableGPS       {file = "Client\holdActionAdd\fn_holdActionAddDisableGPS.sqf";};
         class holdActionLoadAmmoboxArsenal  {file = "Client\holdActionAdd\fn_holdActionLoadAmmoboxArsenal.sqf";};
         class holdActionUnloadAmmoboxArsenal{file = "Client\holdActionAdd\fn_holdActionUnloadAmmoboxArsenal.sqf";};
         class holdActionLoadMotarAmmobox    {file = "Client\holdActionAdd\fn_holdActionLoadMotarAmmobox.sqf";};

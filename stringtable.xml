@@ -10,6 +10,16 @@
 			<Key ID="STR_CTI_POPO_Debug_ENABLE">
 				<French>DEBUG:</French>
 			</Key>
+			<Key ID="STR_CTI_POPO_TOWN_Units_Georgetown_ENABLED">
+				<French>VILLE: Georgetown ennemi</French>
+			</Key>	
+			<Key ID="STR_CTI_POPO_TOWN_Hostages_Georgetown_ENABLED">
+				<French>VILLE: Georgetown otage</French>
+			</Key>	
+	</Package>
+</Project>
+<Project name="Dialogs">
+	<Package name="Main">
 			<Key ID="STR_CTI_POPO_Escort">
 				<French>Escorter</French>
 			</Key>
@@ -19,12 +29,28 @@
 			<Key ID="STR_CTI_POPO_FREE_Hostage">
 				<French>Détacher l'otage</French>
 			</Key>
-			<Key ID="STR_CTI_POPO_TOWN_Units_Georgetown_ENABLED">
-				<French>VILLE: Georgetown ennemi</French>
-			</Key>	
-			<Key ID="STR_CTI_POPO_TOWN_Hostages_Georgetown_ENABLED">
-				<French>VILLE: Georgetown otage</French>
-			</Key>	
+			<Key ID="STR_CTI_POPO_DISABLE_GPS">
+				<French>désactiver le GPS</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_PARADROP_AMMOBOX">
+				<French>Parachutage de munitions</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_LOAD_CRATE_INTO_THE_DUMPSTER">
+				<French>charger la caisse dans la benne</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_LOAD_CRATE_ON_THE_GALLERY">
+				<French>charger la caisse sur la galerie</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_UNLOAD_CRATE_INTO_THE_DUMPSTER">
+				<French>Décharger la caisse de la benne</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_UNLOAD_CRATE_ON_THE_GALLERY">
+				<French>Décharger la caisse sur la galerie</French>
+			</Key>
+	</Package>
+</Project>
+<Project name="Radio messages">
+	<Package name="Main">
 			<Key ID="STR_CTI_POPO_HQ_MESSAGE_PARADROP">
 				<French>Reçu. Nous sommes en chemin largage sur votre position !</French>
 			</Key>
@@ -33,6 +59,22 @@
 			</Key>
 			<Key ID="STR_CTI_POPO_HQ_MESSAGE_PARADROP_RETURN_BASE">
 				<French>retour base. Bonne chance</French>
+			</Key>
+	</Package>
+</Project>
+<Project name="Help message">
+	<Package name="Main">
+			<Key ID="STR_CTI_POPO_HELP_MESSAGE_DROP_NOT_AVAIBLE">
+				<French>Largage non disponible.</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_HELP_MESSAGE_DROP_AVAIBLE">
+				<French>Largage disponible.</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_HELP_MESSAGE_BEACON_OFF">
+				<French>balise GPS OFF.</French>
+			</Key>
+			<Key ID="STR_CTI_POPO_HELP_MESSAGE_THE_BOX_IS_TOO_FAR">
+				<French>la caisse est trop loin !</French>
 			</Key>
 	</Package>
 </Project>

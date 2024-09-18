@@ -1,5 +1,8 @@
 V 0.11:
 
+correction: de la fonction Skillset maintenant le bon skill est attribué en publicVariableServer
+rajout : des tradutions des menus contextuels.
+
 V 0.10:
 
 rajout: maintenant les renforts aériens se déclenchent seulement si un aéronef rendre dans la zone et détecté par les radars.
